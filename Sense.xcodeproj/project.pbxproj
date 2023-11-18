@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33D49DC66F547CCC98603F45 /* Pods_Sense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE882F8B0D8D220B0517A71 /* Pods_Sense.framework */; };
 		62A4551D2B08C5E800ACD2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4551C2B08C5E800ACD2E6 /* AppDelegate.swift */; };
 		62A4551F2B08C5E800ACD2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4551E2B08C5E800ACD2E6 /* SceneDelegate.swift */; };
 		62A455242B08C5E800ACD2E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A455222B08C5E800ACD2E6 /* Main.storyboard */; };
@@ -19,6 +20,9 @@
 		62A4553C2B08C70D00ACD2E6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */; };
 		62A4553E2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553D2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift */; };
 		62A455402B08C90300ACD2E6 /* EveningReflectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553F2B08C90300ACD2E6 /* EveningReflectionsViewController.swift */; };
+		62A455422B08DD9A00ACD2E6 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A455412B08DD9A00ACD2E6 /* CustomUIButton.swift */; };
+		62A455442B08DFBD00ACD2E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */; };
+		62A455462B08E74E00ACD2E6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A455452B08E74E00ACD2E6 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,12 @@
 		62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		62A4553D2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntentionsViewController.swift; sourceTree = "<group>"; };
 		62A4553F2B08C90300ACD2E6 /* EveningReflectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningReflectionsViewController.swift; sourceTree = "<group>"; };
+		62A455412B08DD9A00ACD2E6 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		62A455452B08E74E00ACD2E6 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		677072AE97AA236B2E3704C2 /* Pods-Sense.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sense.debug.xcconfig"; path = "Target Support Files/Pods-Sense/Pods-Sense.debug.xcconfig"; sourceTree = "<group>"; };
+		A9ED0224B32C1D2D73162E6E /* Pods-Sense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sense.release.xcconfig"; path = "Target Support Files/Pods-Sense/Pods-Sense.release.xcconfig"; sourceTree = "<group>"; };
+		ACE882F8B0D8D220B0517A71 /* Pods_Sense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D49DC66F547CCC98603F45 /* Pods_Sense.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +65,8 @@
 			children = (
 				62A4551B2B08C5E800ACD2E6 /* Sense */,
 				62A4551A2B08C5E800ACD2E6 /* Products */,
+				A88E97BB48E137B5347A4DA2 /* Pods */,
+				7422111F4ECEAA9742F1C92C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +89,7 @@
 				62A455252B08C5EA00ACD2E6 /* Assets.xcassets */,
 				62A455272B08C5EA00ACD2E6 /* LaunchScreen.storyboard */,
 				62A4552A2B08C5EA00ACD2E6 /* Info.plist */,
+				62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */,
 			);
 			path = Sense;
 			sourceTree = "<group>";
@@ -83,6 +97,7 @@
 		62A455302B08C65B00ACD2E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				62A455452B08E74E00ACD2E6 /* LaunchScreenViewController.swift */,
 				62A455332B08C6D700ACD2E6 /* HomeViewController.swift */,
 				62A455372B08C6F800ACD2E6 /* RegisterViewController.swift */,
 				62A455352B08C6EA00ACD2E6 /* LoginViewController.swift */,
@@ -97,6 +112,7 @@
 		62A455312B08C67900ACD2E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				62A455412B08DD9A00ACD2E6 /* CustomUIButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +125,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7422111F4ECEAA9742F1C92C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACE882F8B0D8D220B0517A71 /* Pods_Sense.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A88E97BB48E137B5347A4DA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				677072AE97AA236B2E3704C2 /* Pods-Sense.debug.xcconfig */,
+				A9ED0224B32C1D2D73162E6E /* Pods-Sense.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62A4552D2B08C5EA00ACD2E6 /* Build configuration list for PBXNativeTarget "Sense" */;
 			buildPhases = (
+				F28786E2B36EADFF999AE873 /* [CP] Check Pods Manifest.lock */,
 				62A455152B08C5E800ACD2E6 /* Sources */,
 				62A455162B08C5E800ACD2E6 /* Frameworks */,
 				62A455172B08C5E800ACD2E6 /* Resources */,
+				04B63C94B351A958E0181957 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A455292B08C5EA00ACD2E6 /* LaunchScreen.storyboard in Resources */,
+				62A455442B08DFBD00ACD2E6 /* GoogleService-Info.plist in Resources */,
 				62A455262B08C5EA00ACD2E6 /* Assets.xcassets in Resources */,
 				62A455242B08C5E800ACD2E6 /* Main.storyboard in Resources */,
 			);
@@ -175,11 +211,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04B63C94B351A958E0181957 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sense/Pods-Sense-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sense/Pods-Sense-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sense/Pods-Sense-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F28786E2B36EADFF999AE873 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sense-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		62A455152B08C5E800ACD2E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A455422B08DD9A00ACD2E6 /* CustomUIButton.swift in Sources */,
 				62A455362B08C6EA00ACD2E6 /* LoginViewController.swift in Sources */,
 				62A455402B08C90300ACD2E6 /* EveningReflectionsViewController.swift in Sources */,
 				62A455382B08C6F800ACD2E6 /* RegisterViewController.swift in Sources */,
@@ -188,6 +267,7 @@
 				62A4553A2B08C70300ACD2E6 /* MainViewController.swift in Sources */,
 				62A4551F2B08C5E800ACD2E6 /* SceneDelegate.swift in Sources */,
 				62A4553C2B08C70D00ACD2E6 /* CalendarViewController.swift in Sources */,
+				62A455462B08E74E00ACD2E6 /* LaunchScreenViewController.swift in Sources */,
 				62A455342B08C6D700ACD2E6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +331,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -314,7 +394,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -335,6 +415,7 @@
 		};
 		62A4552E2B08C5EA00ACD2E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 677072AE97AA236B2E3704C2 /* Pods-Sense.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -363,6 +444,7 @@
 		};
 		62A4552F2B08C5EA00ACD2E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9ED0224B32C1D2D73162E6E /* Pods-Sense.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
