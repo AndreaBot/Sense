@@ -20,13 +20,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="z9W-s6-IXD"/>
                     <connections>
-                        <segue destination="USc-b5-GFY" kind="show" identifier="goToDiary" id="BA8-hd-fxy"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToUser" id="zes-i0-wyc"/>
+                        <segue destination="ISu-zj-4im" kind="presentation" identifier="goToDiary" modalPresentationStyle="fullScreen" id="Wug-Xm-6Al"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ral-v3-pw6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.46564885496184" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="831" y="4"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -82,13 +82,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="112" translatesAutoresizingMaskIntoConstraints="NO" id="h5K-Mc-7i0">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="347.66666666666669"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1Q-rq-em5">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="andrea@1.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1Q-rq-em5">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="117.66666666666667"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dpO-ce-2cm">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dpO-ce-2cm">
                                                 <rect key="frame" x="0.0" y="229.66666666666669" width="373" height="118"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -122,12 +122,12 @@
                         <outlet property="emailTextField" destination="T1Q-rq-em5" id="wXa-3H-3o3"/>
                         <outlet property="loginButton" destination="vGg-bQ-t1T" id="3kt-xT-C4K"/>
                         <outlet property="passwordTextField" destination="dpO-ce-2cm" id="i8c-Xy-JAd"/>
-                        <segue destination="USc-b5-GFY" kind="show" identifier="login" id="Xlb-RY-wuH"/>
+                        <segue destination="ISu-zj-4im" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="Rxt-CE-CSJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuI-D3-wrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779.3893129770991" y="388.73239436619718"/>
+            <point key="canvasLocation" x="2888" y="511"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="9gb-ym-RWd">
@@ -156,12 +156,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ja0-nk-Vex">
                                 <rect key="frame" x="148" y="323" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72520500421524048" green="0.87607848644256592" blue="0.98051685094833374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70n-6Y-WLo">
                                 <rect key="frame" x="148" y="409" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72520500421524048" green="0.87607848644256592" blue="0.98051685094833374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -175,17 +177,17 @@
                         <outlet property="passwordTextField" destination="Ja0-nk-Vex" id="FWX-iW-U2W"/>
                         <outlet property="registerButton" destination="fda-PF-oiv" id="j0I-6f-1Zr"/>
                         <outlet property="repeatPasswordTextField" destination="70n-6Y-WLo" id="LEF-Lm-xKG"/>
-                        <segue destination="USc-b5-GFY" kind="show" identifier="register" id="6Ub-YR-597"/>
+                        <segue destination="ISu-zj-4im" kind="presentation" identifier="register" modalPresentationStyle="fullScreen" id="h79-2y-j3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58Y-bZ-D9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2758.0152671755723" y="-377.46478873239437"/>
+            <point key="canvasLocation" x="2888" y="-656"/>
         </scene>
-        <!--Diary-->
+        <!--Main View Controller-->
         <scene sceneID="Buf-Vr-Rnm">
             <objects>
-                <viewController id="HvU-2U-Vlh" customClass="MainViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="diaryScreen" id="HvU-2U-Vlh" customClass="MainViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8JY-X8-J6F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +198,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Evening Reflections"/>
                                 <connections>
-                                    <segue destination="TYt-Kl-nRt" kind="show" id="oxQ-t9-NJa"/>
+                                    <segue destination="TYt-Kl-nRt" kind="show" id="yjD-YX-oxm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-Xb-BwU">
@@ -205,44 +207,46 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Daily Intensions"/>
                                 <connections>
-                                    <segue destination="fMU-C6-Ddy" kind="show" id="3yU-qG-2Uy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0k-Uu-14c">
-                                <rect key="frame" x="159" y="217" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="logout:" destination="HvU-2U-Vlh" eventType="touchUpInside" id="hsA-wt-53d"/>
+                                    <segue destination="fMU-C6-Ddy" kind="show" id="fKR-hf-bCx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="phA-Kz-Y08"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" selectedImage="book.fill" catalog="system" id="957-gu-eML"/>
-                    <navigationItem key="navigationItem" id="P3Y-ad-ksd"/>
+                    <navigationItem key="navigationItem" id="P3Y-ad-ksd">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="enA-lh-azv">
+                            <connections>
+                                <action selector="logout:" destination="HvU-2U-Vlh" id="iLo-bp-CAv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhN-Dh-Yd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4929.0076335877857" y="-239.43661971830988"/>
+            <point key="canvasLocation" x="4688" y="1270"/>
         </scene>
-        <!--Calendar-->
+        <!--Calendar View Controller-->
         <scene sceneID="BK9-ZK-NW2">
             <objects>
-                <viewController id="t16-YQ-V2H" customClass="CalendarViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="calendarScreen" id="t16-YQ-V2H" customClass="CalendarViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kw7-6N-WxF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ddi-bw-M02"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" selectedImage="calendar" catalog="system" id="hff-e7-G87"/>
+                    <navigationItem key="navigationItem" id="w5P-Fj-61I">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Tvt-sk-Cv9">
+                            <connections>
+                                <action selector="logout:" destination="t16-YQ-V2H" id="kmD-Zn-lQ8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4t-aW-Jl8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4956" y="-913"/>
+            <point key="canvasLocation" x="5882" y="1305"/>
         </scene>
         <!--Daily Intentions View Controller-->
         <scene sceneID="vbH-5h-JTc">
@@ -258,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWc-th-3hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4956.4885496183206" y="501.4084507042254"/>
+            <point key="canvasLocation" x="4222" y="2085"/>
         </scene>
         <!--Evening Reflections View Controller-->
         <scene sceneID="VgT-pt-hEZ">
@@ -274,27 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0a-6Q-N9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5779.3893129770986" y="515.49295774647885"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="QvN-oB-COs">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="USc-b5-GFY" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ir9-wI-Vdw"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Okz-9j-YXF">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="HvU-2U-Vlh" kind="relationship" relationship="viewControllers" id="RDa-2G-JjY"/>
-                        <segue destination="t16-YQ-V2H" kind="relationship" relationship="viewControllers" id="GzB-TW-KXc"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GDu-yJ-BQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4002.2900763358775" y="-239.43661971830988"/>
+            <point key="canvasLocation" x="5173" y="2085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BoP-kw-We8">
@@ -304,6 +288,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s77-0K-FUX">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemPinkColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -314,9 +299,68 @@
             </objects>
             <point key="canvasLocation" x="-57.251908396946561" y="3.5211267605633805"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hdo-hw-vaE">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ISu-zj-4im" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zNQ-QC-vYR"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w1q-Fz-y4m">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hef-Bg-VTQ" kind="relationship" relationship="viewControllers" id="8ka-gb-73k"/>
+                        <segue destination="3dH-ez-I0W" kind="relationship" relationship="viewControllers" id="niX-IB-eSL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rds-LK-vbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5245" y="-256"/>
+        </scene>
+        <!--Diary-->
+        <scene sceneID="Ovc-xi-SPv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hef-Bg-VTQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Diary" selectedImage="book.fill" catalog="system" id="957-gu-eML"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6S8-ew-M0b">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HvU-2U-Vlh" kind="relationship" relationship="rootViewController" id="iso-n4-wNj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssY-Lg-aRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4688" y="539"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="5eu-9c-RIe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3dH-ez-I0W" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" selectedImage="calendar" catalog="system" id="hff-e7-G87"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="huv-LO-6xZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gly-lL-IJN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t16-YQ-V2H" kind="relationship" relationship="rootViewController" id="EAR-TX-GbS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="buI-UC-T9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5882" y="539"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xlb-RY-wuH"/>
+        <segue reference="h79-2y-j3O"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="95"/>
@@ -325,13 +369,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

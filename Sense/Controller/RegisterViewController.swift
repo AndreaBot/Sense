@@ -19,22 +19,22 @@ class RegisterViewController: UIViewController {
     //@IBOutlet weak var repeatPasswordLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
-    let showPasswordButton = CustomUIButton()
-    let showRepeatPasswordButton = CustomUIButton()
+    let showPasswordButton = UIButton()
+    let showRepeatPasswordButton = UIButton()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Register"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationItem.hidesBackButton = false
         setupUI()
     }
     
     func setupUI() {
-        
-        showPasswordButton.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
-        showRepeatPasswordButton.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
+        setShowPasswordButton(showPasswordButton)
+        setShowPasswordButton(showRepeatPasswordButton)
         
         let firstCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 40))
         firstCustomRightView.addSubview(showPasswordButton)
@@ -51,6 +51,13 @@ class RegisterViewController: UIViewController {
         registerButton.setTitleColor(.white, for: .normal)
         registerButton.backgroundColor = .systemBlue
         registerButton.layer.cornerRadius = 10
+    }
+    
+    func setShowPasswordButton(_ button: UIButton) {
+        button.frame = CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
+        button.tintColor = .label
     }
     
     @objc func showPasswords() {

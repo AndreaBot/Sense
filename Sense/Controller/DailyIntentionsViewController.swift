@@ -11,10 +11,5 @@ class DailyIntentionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
- 
     }
-    
-
-
 }

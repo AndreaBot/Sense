@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let showPasswordButton = CustomUIButton()
+    let showPasswordButton = UIButton()
     
     
     let blueColor = CGColor(red: 0, green: 0.4, blue: 1, alpha: 1)
@@ -25,23 +25,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Login"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationItem.hidesBackButton = false
         setupUI()
     }
     
     func setupUI() {
-        
-        showPasswordButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
-        showPasswordButton.tintColor = .black
+        setShowPasswordButton()
         
         let customRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
         customRightView.addSubview(showPasswordButton)
-
+        
         passwordTextField.rightView = customRightView
         passwordTextField.rightViewMode = .always
-
-        loginButton.setTitleColor(.black, for: .normal)
+        
+        loginButton.setTitleColor(.label, for: .normal)
         loginButton.backgroundColor = .white
         loginButton.layer.cornerRadius = 10
         loginButton.layer.borderColor = blueColor
@@ -60,6 +59,13 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setShowPasswordButton() {
+        showPasswordButton.frame = CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height)
+        showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        showPasswordButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
+        showPasswordButton.tintColor = .label
     }
     
     @objc func showPassword() {
