@@ -7,9 +7,11 @@
 
 import UIKit
 
-class EveningReflectionsViewController: UIViewController {
+class DiaryEntryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "TEST"
     }
 }

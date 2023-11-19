@@ -18,8 +18,7 @@
 		62A455382B08C6F800ACD2E6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A455372B08C6F800ACD2E6 /* RegisterViewController.swift */; };
 		62A4553A2B08C70300ACD2E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A455392B08C70300ACD2E6 /* MainViewController.swift */; };
 		62A4553C2B08C70D00ACD2E6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */; };
-		62A4553E2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553D2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift */; };
-		62A455402B08C90300ACD2E6 /* EveningReflectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553F2B08C90300ACD2E6 /* EveningReflectionsViewController.swift */; };
+		62A455402B08C90300ACD2E6 /* DiaryEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4553F2B08C90300ACD2E6 /* DiaryEntryViewController.swift */; };
 		62A455442B08DFBD00ACD2E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */; };
 		62A455462B08E74E00ACD2E6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A455452B08E74E00ACD2E6 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,8 +36,7 @@
 		62A455372B08C6F800ACD2E6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		62A455392B08C70300ACD2E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		62A4553D2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntentionsViewController.swift; sourceTree = "<group>"; };
-		62A4553F2B08C90300ACD2E6 /* EveningReflectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningReflectionsViewController.swift; sourceTree = "<group>"; };
+		62A4553F2B08C90300ACD2E6 /* DiaryEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryViewController.swift; sourceTree = "<group>"; };
 		62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62A455452B08E74E00ACD2E6 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		677072AE97AA236B2E3704C2 /* Pods-Sense.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sense.debug.xcconfig"; path = "Target Support Files/Pods-Sense/Pods-Sense.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,8 +99,7 @@
 				62A455352B08C6EA00ACD2E6 /* LoginViewController.swift */,
 				62A455392B08C70300ACD2E6 /* MainViewController.swift */,
 				62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */,
-				62A4553D2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift */,
-				62A4553F2B08C90300ACD2E6 /* EveningReflectionsViewController.swift */,
+				62A4553F2B08C90300ACD2E6 /* DiaryEntryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,10 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A455362B08C6EA00ACD2E6 /* LoginViewController.swift in Sources */,
-				62A455402B08C90300ACD2E6 /* EveningReflectionsViewController.swift in Sources */,
+				62A455402B08C90300ACD2E6 /* DiaryEntryViewController.swift in Sources */,
 				62A455382B08C6F800ACD2E6 /* RegisterViewController.swift in Sources */,
 				62A4551D2B08C5E800ACD2E6 /* AppDelegate.swift in Sources */,
-				62A4553E2B08C71F00ACD2E6 /* DailyIntentionsViewController.swift in Sources */,
 				62A4553A2B08C70300ACD2E6 /* MainViewController.swift in Sources */,
 				62A4551F2B08C5E800ACD2E6 /* SceneDelegate.swift in Sources */,
 				62A4553C2B08C70D00ACD2E6 /* CalendarViewController.swift in Sources */,
