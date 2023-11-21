@@ -271,22 +271,31 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lgd-8a-0Sa" userLabel="Moods Stack View">
                                                         <rect key="frame" x="0.0" y="40" width="393" height="30"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-xf-aVd">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-xf-aVd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="131" height="30"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="😃"/>
+                                                                <connections>
+                                                                    <action selector="moodTracker:" destination="fMU-C6-Ddy" eventType="touchUpInside" id="mNO-Al-TWC"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Z5E-Nf-9Yr">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Z5E-Nf-9Yr">
                                                                 <rect key="frame" x="131" y="0.0" width="131" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="😐"/>
+                                                                <connections>
+                                                                    <action selector="moodTracker:" destination="fMU-C6-Ddy" eventType="touchUpInside" id="oeo-8l-xGl"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4ee-WD-7ft">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4ee-WD-7ft">
                                                                 <rect key="frame" x="262" y="0.0" width="131" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="☹️"/>
+                                                                <connections>
+                                                                    <action selector="moodTracker:" destination="fMU-C6-Ddy" eventType="touchUpInside" id="lRc-kb-BHn"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -363,10 +372,9 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-JT-FdK">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is a diary entry" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-JT-FdK">
                                                         <rect key="frame" x="0.0" y="30.333333333333371" width="393" height="277.66666666666669"/>
                                                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -400,9 +408,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ieb-NL-oBk">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="7dP-0V-Shc"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="7dP-0V-Shc">
+                            <connections>
+                                <action selector="saveButtonpressed:" destination="fMU-C6-Ddy" id="sYB-g8-KMB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="393" height="852"/>
+                    <connections>
+                        <outlet property="diaryEntry" destination="vte-JT-FdK" id="R6g-ex-nwe"/>
+                        <outlet property="txtField1" destination="ogY-xN-myc" id="qd0-3q-PJ9"/>
+                        <outlet property="txtField2" destination="8qf-CW-3VU" id="yO5-6j-740"/>
+                        <outlet property="txtField3" destination="5uV-N4-ihZ" id="eja-e2-Dp5"/>
+                        <outlet property="txtField4" destination="jTA-KL-pGA" id="bda-Pm-Hiq"/>
+                        <outlet property="txtField5" destination="fbV-Fy-I6F" id="M2c-Pz-UHI"/>
+                        <outlet property="txtField6" destination="1d7-JH-Rdw" id="3ig-V1-0Vq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWc-th-3hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
