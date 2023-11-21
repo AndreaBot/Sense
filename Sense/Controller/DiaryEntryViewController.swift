@@ -13,6 +13,9 @@ import FirebaseFirestore
 class DiaryEntryViewController: UIViewController {
 
 
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    
     @IBOutlet weak var txtField1: UITextField!
     @IBOutlet weak var txtField2: UITextField!
     @IBOutlet weak var txtField3: UITextField!
@@ -23,7 +26,12 @@ class DiaryEntryViewController: UIViewController {
     
     var mood = ""
     var currentDate = ""
-    var timeOfDay = "pm"
+    
+    var screenTitle = ""
+    var timeOfDay = ""
+    var firstLabelText = ""
+    var secondLabelText = ""
+    var backgroundColor = UIColor()
     
     let db = Firestore.firestore()
     
@@ -31,7 +39,10 @@ class DiaryEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "TEST"
+        title = screenTitle
+        firstLabel.text = firstLabelText
+        secondLabel.text = secondLabelText
+        view.backgroundColor = backgroundColor
     }
     
     

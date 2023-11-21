@@ -195,16 +195,19 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcn-xW-Lzv">
                                 <rect key="frame" x="109" y="519" width="174" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Evening Reflections"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Evening Reflections"/>
+                                <connections>
+                                    <action selector="diaryEntryPressed:" destination="HvU-2U-Vlh" eventType="touchUpInside" id="aZC-ik-X1N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-Xb-BwU">
                                 <rect key="frame" x="124" y="369" width="144" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Daily Intensions"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Daily Intensions"/>
                                 <connections>
-                                    <segue destination="fMU-C6-Ddy" kind="show" id="fKR-hf-bCx"/>
+                                    <action selector="diaryEntryPressed:" destination="HvU-2U-Vlh" eventType="touchUpInside" id="MMd-ug-Vd6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -218,6 +221,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="fMU-C6-Ddy" kind="show" identifier="makeEntry" id="NaV-o0-DOZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhN-Dh-Yd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,9 +304,10 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.34483858942985535" green="0.90898489952087402" blue="0.85515695810317993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="JGR-ai-3kl"/>
                                                 </constraints>
@@ -332,7 +339,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MFO-bI-03y" userLabel="Second Bullet Points Stack View">
                                                 <rect key="frame" x="0.0" y="296" width="393" height="166"/>
@@ -361,7 +368,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JtF-we-GB1" userLabel="Diary Entry Stack View">
                                                 <rect key="frame" x="0.0" y="492" width="393" height="308"/>
@@ -374,16 +381,15 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is a diary entry" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-JT-FdK">
                                                         <rect key="frame" x="0.0" y="30.333333333333371" width="393" height="277.66666666666669"/>
-                                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="800" id="hB5-Ye-eHk"/>
                                         </constraints>
@@ -417,6 +423,8 @@
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
                         <outlet property="diaryEntry" destination="vte-JT-FdK" id="R6g-ex-nwe"/>
+                        <outlet property="firstLabel" destination="dnU-cq-eEV" id="fEh-vO-O3S"/>
+                        <outlet property="secondLabel" destination="lWs-9g-4ZL" id="cTM-n5-GKh"/>
                         <outlet property="txtField1" destination="ogY-xN-myc" id="qd0-3q-PJ9"/>
                         <outlet property="txtField2" destination="8qf-CW-3VU" id="yO5-6j-740"/>
                         <outlet property="txtField3" destination="5uV-N4-ihZ" id="eja-e2-Dp5"/>
@@ -534,12 +542,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
