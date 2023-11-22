@@ -8,5 +8,6 @@ target 'Sense' do
   inhibit_all_warnings!
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'FSCalendar'
 
 end
