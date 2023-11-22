@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33D49DC66F547CCC98603F45 /* Pods_Sense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE882F8B0D8D220B0517A71 /* Pods_Sense.framework */; };
+		6298E5E82B0E698A000FCF30 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298E5E72B0E698A000FCF30 /* CalendarContentViewController.swift */; };
 		62A4551D2B08C5E800ACD2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4551C2B08C5E800ACD2E6 /* AppDelegate.swift */; };
 		62A4551F2B08C5E800ACD2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4551E2B08C5E800ACD2E6 /* SceneDelegate.swift */; };
 		62A455242B08C5E800ACD2E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A455222B08C5E800ACD2E6 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6298E5E72B0E698A000FCF30 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
 		62A455192B08C5E800ACD2E6 /* Sense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A4551C2B08C5E800ACD2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62A4551E2B08C5E800ACD2E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				62A455392B08C70300ACD2E6 /* MainViewController.swift */,
 				62A4553B2B08C70D00ACD2E6 /* CalendarViewController.swift */,
 				62A4553F2B08C90300ACD2E6 /* DiaryEntryViewController.swift */,
+				6298E5E72B0E698A000FCF30 /* CalendarContentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			files = (
 				62A455362B08C6EA00ACD2E6 /* LoginViewController.swift in Sources */,
 				62A455402B08C90300ACD2E6 /* DiaryEntryViewController.swift in Sources */,
+				6298E5E82B0E698A000FCF30 /* CalendarContentViewController.swift in Sources */,
 				62A455382B08C6F800ACD2E6 /* RegisterViewController.swift in Sources */,
 				62A4551D2B08C5E800ACD2E6 /* AppDelegate.swift in Sources */,
 				62A4553A2B08C70300ACD2E6 /* MainViewController.swift in Sources */,

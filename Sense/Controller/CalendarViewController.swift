@@ -7,11 +7,17 @@
 
 import UIKit
 import FirebaseAuth
+import FSCalendar
 
 class CalendarViewController: UIViewController {
 
+    @IBOutlet weak var calendar: FSCalendar!
+    
+    var formattedDate = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.delegate = self
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
@@ -34,5 +40,36 @@ class CalendarViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: targetViewController)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
+    }
+}
+
+extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        let calendar = Calendar.current
+        let day = String(calendar.component(.day, from: date))
+        let month = String(calendar.component(.month, from: date))
+        let year = String(calendar.component(.year, from: date))
+        formattedDate = day+month+year
+        
+        performSegue(withIdentifier: "showCalendarContent", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCalendarContent" {
+            
+            let destinationVC = segue.destination as? CalendarContentViewController
+            //destinationVC?.delegate = self
+            destinationVC?.currentDate = formattedDate
+            
+            if let sheet = destinationVC?.sheetPresentationController {
+                sheet.detents = [.custom(resolver: { context in
+                    return context.maximumDetentValue * 0.33
+                })]
+                sheet.preferredCornerRadius = 10
+            }
+        }
     }
 }
