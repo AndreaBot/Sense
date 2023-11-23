@@ -10,6 +10,10 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
+protocol CalendarContentViewDelegate {
+    func showDiaryEntryContent(_ buttonTitle: String)
+}
+
 class CalendarContentViewController: UIViewController {
     
     
@@ -17,6 +21,7 @@ class CalendarContentViewController: UIViewController {
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     
     var currentDate = ""
+    var delegate: CalendarContentViewDelegate?
     
     let db = Firestore.firestore()
     
@@ -46,4 +51,18 @@ class CalendarContentViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func diaryEntryPressed(_ sender: UIButton) {
+        dismiss(animated: true)
+        delegate?.showDiaryEntryContent(convertButtonTitleToDocName(sender.currentTitle!))
+    }
+    
+    func convertButtonTitleToDocName(_ buttonTitle: String) -> String {
+        if buttonTitle == "Morning Intentions" {
+            return "am"
+        } else {
+            return "pm"
+        }
+    }
+    
 }

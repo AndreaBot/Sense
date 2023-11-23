@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 import FSCalendar
 
 class CalendarViewController: UIViewController {
@@ -14,6 +15,8 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendar: FSCalendar!
     
     var formattedDate = ""
+    let db = Firestore.firestore()
+    var entryContent: DiaryEntryModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +57,13 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
         formattedDate = day+month+year
         
         performSegue(withIdentifier: "showCalendarContent", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCalendarContent" {
             
             let destinationVC = segue.destination as? CalendarContentViewController
-            //destinationVC?.delegate = self
+            destinationVC?.delegate = self
             destinationVC?.currentDate = formattedDate
             
             if let sheet = destinationVC?.sheetPresentationController {
@@ -70,6 +72,54 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
                 })]
                 sheet.preferredCornerRadius = 10
             }
+            
+        } else if segue.identifier == "showEntryContent" {
+            let destinationVC = segue.destination as? DiaryEntryViewController
+            destinationVC?.entryContent = entryContent
+        }
+    }
+}
+
+extension CalendarViewController: CalendarContentViewDelegate {
+    
+    func showDiaryEntryContent(_ buttonTitle: String) {
+        if let userId = Auth.auth().currentUser?.uid {
+            
+            let collectionRef = db.collection(userId).document(formattedDate).collection(formattedDate)
+            let docRef = collectionRef.document(buttonTitle)
+            
+            docRef.getDocument(completion: { [self] (documentSnapshot, error) in
+                if let error = error {
+                    print("Error getting document: \(error)")
+                    return
+                }
+                if let data = documentSnapshot?.data() {
+                    
+                    let timeOfDay = data["timeOfDay"]
+                    let mood = data["mood"]
+                    let text1 = data["txtField1"]
+                    let text2 = data["txtField2"]
+                    let text3 = data["txtField3"]
+                    let text4 = data["txtField4"]
+                    let text5 = data["txtField5"]
+                    let text6 = data["txtField6"]
+                    let diaryText = data["diaryEntry"]
+                    
+                    entryContent = DiaryEntryModel(
+                        
+                        timeOfDay: timeOfDay as? String,
+                        mood: mood as? String,
+                        txtField1: text1 as? String,
+                        txtField2: text2 as? String,
+                        txtField3: text3 as? String,
+                        txtField4: text4 as? String,
+                        txtField5: text5 as? String,
+                        txtField6: text6 as? String,
+                        diaryText: diaryText as? String)
+                    
+                    performSegue(withIdentifier: "showEntryContent", sender: self)
+                }
+            })
         }
     }
 }
