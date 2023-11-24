@@ -51,11 +51,13 @@ class LoginViewController: UIViewController {
     @IBAction func loginUser(_ sender: UIButton) {
         
         if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
-            Auth.auth().signIn(withEmail: userEmail, password: userPassword) { authResult, error in
-                if let e = error {
-                    self.showAlert(e.localizedDescription)
-                } else {
+
+            FirebaseMethods.Authentication.login(userEmail, userPassword) { result in
+                switch result {
+                case .success:
                     self.performSegue(withIdentifier: "login", sender: self)
+                case .failure(let error):
+                    Alerts.showAlert(self, error.localizedDescription)
                 }
             }
         }
@@ -76,11 +78,5 @@ class LoginViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
             showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
-    }
-    
-    func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Retry", style: .cancel))
-        present(alert, animated: true)
     }
 }

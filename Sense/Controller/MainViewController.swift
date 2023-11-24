@@ -40,16 +40,11 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
-        logoutUser()
-    }
-   
-    func logoutUser() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.resetVC()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
+        FirebaseMethods.Authentication.logout { result in
+            switch result {
+            case .success(): self.resetVC()
+            case .failure(let error): Alerts.showAlert(self, error.localizedDescription)
+            }
         }
     }
     
@@ -72,7 +67,6 @@ class MainViewController: UIViewController {
             destinationVC?.editButton.isHidden = true
         }
     }
-    
 }
 
 

@@ -199,11 +199,9 @@ class DiaryEntryViewController: UIViewController {
     
     func showConfirmationMessage() {
         let confimationImage = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-        let confirmationMessage = "Diary entry saved!"
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "", style: .default)
+        let action = UIAlertAction(title: "Diary entry saved!", style: .default)
         action.setValue(confimationImage, forKey: "image")
-        action.setValue(confirmationMessage, forKey: "title")
         alert.addAction(action)
         present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
