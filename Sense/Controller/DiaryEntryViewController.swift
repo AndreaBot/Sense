@@ -105,6 +105,7 @@ class DiaryEntryViewController: UIViewController {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                    self.showConfirmationMessage()
                 }
             }
         }
@@ -194,5 +195,20 @@ class DiaryEntryViewController: UIViewController {
     func disableButton(_ button: UIButton) {
         button.layer.borderWidth = 0
         button.alpha = 0.4
+    }
+    
+    func showConfirmationMessage() {
+        let confimationImage = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        let confirmationMessage = "Diary entry saved!"
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "", style: .default)
+        action.setValue(confimationImage, forKey: "image")
+        action.setValue(confirmationMessage, forKey: "title")
+        alert.addAction(action)
+        present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
