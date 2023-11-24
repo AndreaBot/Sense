@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
     var formattedDate = ""
     let db = Firestore.firestore()
     var entryContent: DiaryEntryModel?
+    var timeOfDayToPass = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
         } else if segue.identifier == "showEntryContent" {
             let destinationVC = segue.destination as? DiaryEntryViewController
             destinationVC?.entryContent = entryContent
+            destinationVC?.saveButton.isEnabled = false
+            destinationVC?.timeOfDay = timeOfDayToPass
+            destinationVC?.currentDate = formattedDate
         }
     }
 }
@@ -116,6 +120,8 @@ extension CalendarViewController: CalendarContentViewDelegate {
                         txtField5: text5 as? String,
                         txtField6: text6 as? String,
                         diaryText: diaryText as? String)
+                    
+                    timeOfDayToPass = timeOfDay as! String
                     
                     performSegue(withIdentifier: "showEntryContent", sender: self)
                 }

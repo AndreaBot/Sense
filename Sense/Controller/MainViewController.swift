@@ -69,6 +69,7 @@ class MainViewController: UIViewController {
             destinationVC?.firstLabelText = firstLabelText
             destinationVC?.secondLabelText = secondLabelText
             destinationVC?.backgroundColor = backgroundColor
+            destinationVC?.editButton.isHidden = true
         }
     }
     

@@ -13,6 +13,7 @@ import FirebaseFirestore
 class DiaryEntryViewController: UIViewController {
     
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var firstLabel: UILabel!
@@ -47,7 +48,9 @@ class DiaryEntryViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = backgroundColor
-        
+        if currentDate == "" {
+            currentDate = getDate()
+        }
         fillView()
     }
     
@@ -59,10 +62,23 @@ class DiaryEntryViewController: UIViewController {
         case 3: mood = "sad"
         default: mood = "neutral"
         }
+        highlightSelectedMood(mood)
     }
     
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if sender.title == "Edit" {
+            sender.title = "Cancel"
+            view.isUserInteractionEnabled = true
+            saveButton.isEnabled = true
+        } else {
+            sender.title = "Edit"
+            view.isUserInteractionEnabled = false
+            saveButton.isEnabled = false
+        }
+    }
+    
+    
     @IBAction func saveButtonpressed(_ sender: UIBarButtonItem) {
-        currentDate = getDate()
         
         if let userId = Auth.auth().currentUser?.uid,
            let text1 = txtField1.text,
@@ -113,14 +129,13 @@ class DiaryEntryViewController: UIViewController {
             txtField6.text = passedContent.txtField6
             diaryEntry.text = passedContent.diaryText
             
-            highlightSavedMood(passedContent.mood!)
+            highlightSelectedMood(passedContent.mood!)
             
             title = convertTitleText(passedContent.timeOfDay!)
             firstLabel.text = convertFirstLabelText((passedContent.timeOfDay)!)
             secondLabel.text = convertSecondLabelText((passedContent.timeOfDay)!)
             
             view.isUserInteractionEnabled = false
-            saveButton.isEnabled = false
             
         } else {
             title = screenTitle
@@ -153,25 +168,31 @@ class DiaryEntryViewController: UIViewController {
         }
     }
     
-    func highlightSavedMood(_ mood: String) {
+    func highlightSelectedMood(_ mood: String) {
         if mood == "happy" {
-            happyMoodButton.layer.borderColor = CGColor(red: 0, green: 0.7, blue: 1, alpha: 1)
-            happyMoodButton.layer.cornerRadius = happyMoodButton.frame.height/2
-            happyMoodButton.layer.borderWidth = happyMoodButton.frame.height/8
-            neutralMoodButton.alpha = 0.4
-            sadMoodButton.alpha = 0.4
+            enableButton(happyMoodButton)
+            disableButton(neutralMoodButton)
+            disableButton(sadMoodButton)
         } else if mood == "neutral" {
-            neutralMoodButton.layer.borderColor = CGColor(red: 0, green: 0.7, blue: 1, alpha: 1)
-            neutralMoodButton.layer.cornerRadius = neutralMoodButton.frame.height/2
-            neutralMoodButton.layer.borderWidth = neutralMoodButton.frame.height/8
-            happyMoodButton.alpha = 0.4
-            sadMoodButton.alpha = 0.4
+            disableButton(happyMoodButton)
+            enableButton(neutralMoodButton)
+            disableButton(sadMoodButton)
         } else if mood == "sad" {
-            sadMoodButton.layer.borderColor = CGColor(red: 0, green: 0.7, blue: 1, alpha: 1)
-            sadMoodButton.layer.cornerRadius = happyMoodButton.frame.height/2
-            sadMoodButton.layer.borderWidth = sadMoodButton.frame.height/8
-            neutralMoodButton.alpha = 0.4
-            happyMoodButton.alpha = 0.4
+            disableButton(happyMoodButton)
+            disableButton(neutralMoodButton)
+            enableButton(sadMoodButton)
         }
+    }
+    
+    func enableButton(_ button: UIButton) {
+        button.layer.borderColor = CGColor(red: 0, green: 0.7, blue: 1, alpha: 1)
+        button.layer.cornerRadius = happyMoodButton.frame.height/2
+        button.layer.borderWidth = happyMoodButton.frame.height/8
+        button.alpha = 1
+    }
+    
+    func disableButton(_ button: UIButton) {
+        button.layer.borderWidth = 0
+        button.alpha = 0.4
     }
 }

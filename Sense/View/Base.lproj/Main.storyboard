@@ -431,15 +431,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ieb-NL-oBk">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="7dP-0V-Shc">
-                            <connections>
-                                <action selector="saveButtonpressed:" destination="fMU-C6-Ddy" id="sYB-g8-KMB"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="save" id="7dP-0V-Shc">
+                                <connections>
+                                    <action selector="saveButtonpressed:" destination="fMU-C6-Ddy" id="sYB-g8-KMB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="S9h-nU-sNf">
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="fMU-C6-Ddy" id="e0T-Q0-cqO"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
                         <outlet property="diaryEntry" destination="vte-JT-FdK" id="R6g-ex-nwe"/>
+                        <outlet property="editButton" destination="S9h-nU-sNf" id="eVr-C2-eGR"/>
                         <outlet property="firstLabel" destination="dnU-cq-eEV" id="fEh-vO-O3S"/>
                         <outlet property="happyMoodButton" destination="0Lv-xf-aVd" id="dFd-R6-tOI"/>
                         <outlet property="neutralMoodButton" destination="Z5E-Nf-9Yr" id="tzY-DC-aW5"/>
