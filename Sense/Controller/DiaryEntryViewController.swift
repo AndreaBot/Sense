@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
-import FirebaseFirestore
 
 class DiaryEntryViewController: UIViewController {
     
@@ -37,8 +36,6 @@ class DiaryEntryViewController: UIViewController {
     var backgroundColor = UIColor.systemGray
     var entryContent: DiaryEntryModel?
 
-    let db = Firestore.firestore()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,27 +80,17 @@ class DiaryEntryViewController: UIViewController {
            let text6 = txtField6.text,
            let diaryText = diaryEntry.text {
             
-            db.collection(userId).document(currentDate).collection(currentDate).document(timeOfDay).setData([
-                "timeOfDay": timeOfDay,
-                "mood": mood,
-                "txtField1": text1,
-                "txtField2": text2,
-                "txtField3": text3,
-                "txtField4": text4,
-                "txtField5": text5,
-                "txtField6": text6,
-                "diaryEntry": diaryText
-                
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
+            FirebaseMethods.Database.writeToDatabase(currentDate, timeOfDay, mood, userId, text1, text2, text3, text4, text5, text6, diaryText) { result in
+                switch result {
+                case .success():
                     print("Document successfully written!")
                     self.present(Alerts.confirmationMessage(), animated: true)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         self.dismiss(animated: true)
                         self.navigationController?.popViewController(animated: true)
                     }
+                case .failure(let error):
+                    print("Error writing document: \(error)")
                 }
             }
         }

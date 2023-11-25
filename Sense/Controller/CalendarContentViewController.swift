@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
-import FirebaseFirestore
 
 protocol CalendarContentViewDelegate {
     func showDiaryEntryContent(_ buttonTitle: String)
@@ -23,30 +22,32 @@ class CalendarContentViewController: UIViewController {
     var currentDate = ""
     var delegate: CalendarContentViewDelegate?
     
-    let db = Firestore.firestore()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkDatatabase()
-    }
-    
-    func checkDatatabase() {
         morningIntentionsButton.isHidden = true
         eveningReflectionsButton.isHidden = true
+        checkDatabase()
+    }
+    
+    func checkDatabase() {
         if let userId = Auth.auth().currentUser?.uid {
-            let databaseContent = db.collection(userId).document(currentDate).collection(currentDate)
-            let amDoc = databaseContent.document("am")
-            let pmDoc = databaseContent.document("pm")
             
-            amDoc.getDocument { document , error in
-                if let document = document, document.exists {
+            FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
                     self.morningIntentionsButton.isHidden = false
+                case(.failure((_))):
+                    self.morningIntentionsButton.isHidden = true
                 }
             }
-            pmDoc.getDocument { document , error in
-                if let document = document, document.exists {
+            
+            FirebaseMethods.Database.checkForDoc("pm", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
                     self.eveningReflectionsButton.isHidden = false
+                case(.failure((_))):
+                    self.eveningReflectionsButton.isHidden = true
                 }
             }
         }

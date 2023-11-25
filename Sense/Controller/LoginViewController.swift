@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginUser(_ sender: UIButton) {
         
         if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
-
+            
             FirebaseMethods.Authentication.login(userEmail, userPassword) { result in
                 switch result {
                 case .success:
