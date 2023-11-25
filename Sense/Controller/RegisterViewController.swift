@@ -84,12 +84,12 @@ class RegisterViewController: UIViewController {
                     case .success:
                         self.performSegue(withIdentifier: "register", sender: self)
                     case .failure(let error):
-                        Alerts.showAlert(self, error.localizedDescription)
+                        self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
                     }
                 }
             }
         } else {
-            Alerts.showAlert(self, "A fields hasn't been filled in or the passwords don't match")
+            present(Alerts.errorAlert("A fields hasn't been filled in or the passwords don't match"), animated: true)
         }
     }
 }

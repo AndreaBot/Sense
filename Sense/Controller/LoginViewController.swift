@@ -24,14 +24,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Login"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
-        navigationItem.hidesBackButton = false
         setupUI()
     }
     
     func setupUI() {
+        title = "Login"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationItem.hidesBackButton = false
         setShowPasswordButton()
         
         let customRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
                 case .success:
                     self.performSegue(withIdentifier: "login", sender: self)
                 case .failure(let error):
-                    Alerts.showAlert(self, error.localizedDescription)
+                    self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
                 }
             }
         }

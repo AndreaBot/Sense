@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         FirebaseMethods.Authentication.logout { result in
             switch result {
             case .success(): self.resetVC()
-            case .failure(let error): Alerts.showAlert(self, error.localizedDescription)
+            case .failure(let error): self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
             }
         }
     }

@@ -15,14 +15,11 @@ class DiaryEntryViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
-    
     @IBOutlet weak var happyMoodButton: UIButton!
     @IBOutlet weak var neutralMoodButton: UIButton!
     @IBOutlet weak var sadMoodButton: UIButton!
-    
     @IBOutlet weak var txtField1: UITextField!
     @IBOutlet weak var txtField2: UITextField!
     @IBOutlet weak var txtField3: UITextField!
@@ -33,14 +30,13 @@ class DiaryEntryViewController: UIViewController {
     
     var mood = ""
     var currentDate = ""
-    
     var screenTitle = ""
     var timeOfDay = ""
     var firstLabelText = ""
     var secondLabelText = ""
     var backgroundColor = UIColor.systemGray
     var entryContent: DiaryEntryModel?
-    
+
     let db = Firestore.firestore()
     
     
@@ -53,7 +49,6 @@ class DiaryEntryViewController: UIViewController {
         }
         fillView()
     }
-    
     
     @IBAction func moodTracker(_ sender: UIButton) {
         switch sender.tag {
@@ -76,7 +71,6 @@ class DiaryEntryViewController: UIViewController {
             saveButton.isEnabled = false
         }
     }
-    
     
     @IBAction func saveButtonpressed(_ sender: UIBarButtonItem) {
         
@@ -105,7 +99,11 @@ class DiaryEntryViewController: UIViewController {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    self.showConfirmationMessage()
+                    self.present(Alerts.confirmationMessage(), animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }
@@ -195,18 +193,5 @@ class DiaryEntryViewController: UIViewController {
     func disableButton(_ button: UIButton) {
         button.layer.borderWidth = 0
         button.alpha = 0.4
-    }
-    
-    func showConfirmationMessage() {
-        let confimationImage = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Diary entry saved!", style: .default)
-        action.setValue(confimationImage, forKey: "image")
-        alert.addAction(action)
-        present(alert, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.dismiss(animated: true)
-            self.navigationController?.popViewController(animated: true)
-        }
     }
 }
