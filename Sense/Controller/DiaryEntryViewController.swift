@@ -42,7 +42,7 @@ class DiaryEntryViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = backgroundColor
         if currentDate == "" {
-            currentDate = getDate()
+            currentDate = AppLogic.getDate()
         }
         fillView()
     }
@@ -96,15 +96,6 @@ class DiaryEntryViewController: UIViewController {
         }
     }
     
-    func getDate() -> String {
-        let date = Date()
-        let calendar = Calendar.current
-        let day = String(calendar.component(.day, from: date))
-        let month = String(calendar.component(.month, from: date))
-        let year = String(calendar.component(.year, from: date))
-        return day+month+year
-    }
-    
     func fillView() {
         if let passedContent = entryContent {
             txtField1.text = passedContent.txtField1
@@ -117,9 +108,9 @@ class DiaryEntryViewController: UIViewController {
             
             highlightSelectedMood(passedContent.mood!)
             
-            title = convertTitleText(passedContent.timeOfDay!)
-            firstLabel.text = convertFirstLabelText((passedContent.timeOfDay)!)
-            secondLabel.text = convertSecondLabelText((passedContent.timeOfDay)!)
+            title = AppLogic.convertTitleText(passedContent.timeOfDay!)
+            firstLabel.text = AppLogic.convertFirstLabelText((passedContent.timeOfDay)!)
+            secondLabel.text = AppLogic.convertSecondLabelText((passedContent.timeOfDay)!)
             
             view.isUserInteractionEnabled = false
             
@@ -127,30 +118,6 @@ class DiaryEntryViewController: UIViewController {
             title = screenTitle
             firstLabel.text = firstLabelText
             secondLabel.text = secondLabelText
-        }
-    }
-    
-    func convertTitleText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Daily Intentions"
-        } else {
-            return "Evening Reflections"
-        }
-    }
-    
-    func convertFirstLabelText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Today's positive intentions"
-        } else {
-            return "Three things I did well today"
-        }
-    }
-    
-    func convertSecondLabelText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Top 3 To-Do's"
-        } else {
-            return "Three thing I could improve on"
         }
     }
     

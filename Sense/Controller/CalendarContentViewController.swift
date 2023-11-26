@@ -55,15 +55,6 @@ class CalendarContentViewController: UIViewController {
     
     @IBAction func diaryEntryPressed(_ sender: UIButton) {
         dismiss(animated: true)
-        delegate?.showDiaryEntryContent(convertButtonTitleToDocName(sender.currentTitle!))
+        delegate?.showDiaryEntryContent(AppLogic.convertButtonTitleToDocName(sender.currentTitle!))
     }
-    
-    func convertButtonTitleToDocName(_ buttonTitle: String) -> String {
-        if buttonTitle == "Morning Intentions" {
-            return "am"
-        } else {
-            return "pm"
-        }
-    }
-    
 }
