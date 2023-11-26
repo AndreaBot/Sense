@@ -44,7 +44,14 @@ class DiaryEntryViewController: UIViewController {
         if currentDate == "" {
             currentDate = AppLogic.getDate()
         }
-        fillView()
+        setupView()
+        let exitKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(exitKeyboard)
+        
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func moodTracker(_ sender: UIButton) {
@@ -96,7 +103,7 @@ class DiaryEntryViewController: UIViewController {
         }
     }
     
-    func fillView() {
+    func setupView() {
         if let passedContent = entryContent {
             txtField1.text = passedContent.txtField1
             txtField2.text = passedContent.txtField2
@@ -119,6 +126,12 @@ class DiaryEntryViewController: UIViewController {
             firstLabel.text = firstLabelText
             secondLabel.text = secondLabelText
         }
+        txtField1.delegate = self
+        txtField2.delegate = self
+        txtField3.delegate = self
+        txtField4.delegate = self
+        txtField5.delegate = self
+        txtField6.delegate = self
     }
     
     func highlightSelectedMood(_ mood: String) {
@@ -149,3 +162,12 @@ class DiaryEntryViewController: UIViewController {
         button.alpha = 0.4
     }
 }
+
+extension DiaryEntryViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+}
+

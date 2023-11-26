@@ -9,5 +9,6 @@ target 'Sense' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FSCalendar'
+  pod 'IQKeyboardManagerSwift'
 
 end
