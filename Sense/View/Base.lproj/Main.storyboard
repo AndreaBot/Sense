@@ -237,20 +237,8 @@
                     <view key="view" contentMode="scaleToFill" id="kw7-6N-WxF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-Lk-pBt" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="64" width="353" height="719"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ddi-bw-M02"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Ddi-bw-M02" firstAttribute="bottom" secondItem="lIP-Lk-pBt" secondAttribute="bottom" constant="20" id="841-bY-e2C"/>
-                            <constraint firstItem="Ddi-bw-M02" firstAttribute="trailing" secondItem="lIP-Lk-pBt" secondAttribute="trailing" constant="20" id="ARf-Rb-TI0"/>
-                            <constraint firstItem="lIP-Lk-pBt" firstAttribute="top" secondItem="Ddi-bw-M02" secondAttribute="top" constant="20" id="ODJ-YU-pxR"/>
-                            <constraint firstItem="lIP-Lk-pBt" firstAttribute="leading" secondItem="Ddi-bw-M02" secondAttribute="leading" constant="20" id="rTJ-zi-euP"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w5P-Fj-61I">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="Tvt-sk-Cv9">
@@ -260,7 +248,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="calendar" destination="lIP-Lk-pBt" id="rcq-WY-X2u"/>
                         <segue destination="MVI-JV-s4X" kind="presentation" identifier="showCalendarContent" id="Qc9-Ku-MOm"/>
                         <segue destination="fMU-C6-Ddy" kind="show" identifier="showEntryContent" id="aQP-XD-r1P"/>
                     </connections>

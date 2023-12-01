@@ -7,11 +7,8 @@
 
 import UIKit
 import FirebaseAuth
-import FSCalendar
 
 class CalendarViewController: UIViewController {
-
-    @IBOutlet weak var calendar: FSCalendar!
     
     var formattedDate = ""
     var entryContent: DiaryEntryModel?
@@ -19,7 +16,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendar.delegate = self
+        createCalendar()
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
@@ -38,21 +35,40 @@ class CalendarViewController: UIViewController {
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
+    
+    func createCalendar() {
+        let calendarView = UICalendarView()
+        view.addSubview(calendarView)
+        calendarView.center = view.center
+        let calendarWidth: CGFloat = view.frame.width * 0.9
+        let calendarHeight: CGFloat = view.frame.height * 0.8
+        
+        calendarView.frame = CGRect(x: view.center.x - (calendarWidth / 2),
+                             y: view.center.y - (calendarHeight / 2),
+                             width: calendarWidth,
+                             height: calendarHeight)
+
+        calendarView.calendar = .current
+        calendarView.locale = Locale(identifier: "en_GB")
+        //calendarView.delegate = self
+        calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
+        
+    }
 }
 
-extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
+extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSingleDateDelegate {
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
-        let calendar = Calendar.current
-        let day = String(calendar.component(.day, from: date))
-        let month = String(calendar.component(.month, from: date))
-        let year = String(calendar.component(.year, from: date))
-        formattedDate = day+month+year
-        
-        performSegue(withIdentifier: "showCalendarContent", sender: self)
+    func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
+        if let component = dateComponents {
+            let day = String(component.day!)
+            let month = String(component.month!)
+            let year = String(component.year!)
+            formattedDate = day+month+year
+            performSegue(withIdentifier: "showCalendarContent", sender: self)
+        }
     }
-    
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCalendarContent" {
             let destinationVC = segue.destination as? CalendarContentViewController
