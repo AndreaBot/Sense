@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var dailyIntentionsButton: UIButton!
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     
-    
     var screenTitle = ""
     var timeOfDay = ""
     var firstLabelText = ""
@@ -29,25 +28,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentDate = AppLogic.getDate()
-        AppLogic.enableBasedOnTime(dailyIntentionsButton, eveningReflectionsButton)
-        if let userId = Auth.auth().currentUser?.uid {
-            FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
-                switch result {
-                case(.success(())):
-                    self.dailyIntentionsButton.isEnabled = false
-                case(.failure(_)):
-                    self.dailyIntentionsButton.isEnabled = true
-                }
-            }
-            FirebaseMethods.Database.checkForDoc("pm", currentDate, userId) { result in
-                switch result {
-                case(.success(())):
-                    self.eveningReflectionsButton.isEnabled = false
-                case(.failure(_)):
-                    self.eveningReflectionsButton.isEnabled = true
-                }
-            }
-        }
+        checkDatabase()
     }
     
     
@@ -87,11 +68,14 @@ class MainViewController: UIViewController {
     
     func checkDatabase() {
         if let userId = Auth.auth().currentUser?.uid {
+            var isDailyIntentionsButtonEnabled = true
+            var isEveningReflectionsButtonEnabled = true
             
             FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
                 switch result {
                 case(.success(())):
                     self.dailyIntentionsButton.isEnabled = false
+                    isDailyIntentionsButtonEnabled = false
                 case(.failure((_))):
                     self.dailyIntentionsButton.isEnabled = true
                 }
@@ -101,14 +85,17 @@ class MainViewController: UIViewController {
                 switch result {
                 case(.success(())):
                     self.eveningReflectionsButton.isEnabled = false
+                    isEveningReflectionsButtonEnabled = false
                 case(.failure((_))):
                     self.eveningReflectionsButton.isEnabled = true
+                }
+                if !isDailyIntentionsButtonEnabled && !isEveningReflectionsButtonEnabled {
+                    AppLogic.enableBasedOnTime(self.dailyIntentionsButton, self.eveningReflectionsButton)
                 }
             }
         }
     }
-    
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "makeEntry" {
