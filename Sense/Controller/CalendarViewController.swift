@@ -125,15 +125,6 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
         }
         return nil
     }
-    
-//    func dateSelection(_ selection: UICalendarSelectionSingleDate, canSelectDate dateComponents: DateComponents?) -> Bool {
-//        if components.contains(where: { dateComp in
-//            dateComp == dateComponents
-//        }) {
-//            return true
-//        }
-//        return false
-//    }
 }
 
 extension CalendarViewController: CalendarContentViewDelegate {

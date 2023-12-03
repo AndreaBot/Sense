@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        currentDate = AppLogic.getDate()
+//        currentDate = AppLogic.getDate()
         checkDatabase()
     }
     
@@ -68,29 +68,25 @@ class MainViewController: UIViewController {
     
     func checkDatabase() {
         if let userId = Auth.auth().currentUser?.uid {
-            var isDailyIntentionsButtonEnabled = true
-            var isEveningReflectionsButtonEnabled = true
+            currentDate = AppLogic.getDate()
             
-            FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
+            FirebaseMethods.Database.checkForDoc("am", self.currentDate, userId) { result in
                 switch result {
                 case(.success(())):
                     self.dailyIntentionsButton.isEnabled = false
-                    isDailyIntentionsButtonEnabled = false
                 case(.failure((_))):
                     self.dailyIntentionsButton.isEnabled = true
+                    AppLogic.enableAmBasedOnTime(self.dailyIntentionsButton)
                 }
-            }
-            
-            FirebaseMethods.Database.checkForDoc("pm", currentDate, userId) { result in
-                switch result {
-                case(.success(())):
-                    self.eveningReflectionsButton.isEnabled = false
-                    isEveningReflectionsButtonEnabled = false
-                case(.failure((_))):
-                    self.eveningReflectionsButton.isEnabled = true
-                }
-                if !isDailyIntentionsButtonEnabled && !isEveningReflectionsButtonEnabled {
-                    AppLogic.enableBasedOnTime(self.dailyIntentionsButton, self.eveningReflectionsButton)
+                
+                FirebaseMethods.Database.checkForDoc("pm", self.currentDate, userId) { result in
+                    switch result {
+                    case(.success(())):
+                        self.eveningReflectionsButton.isEnabled = false
+                    case(.failure((_))):
+                        self.eveningReflectionsButton.isEnabled = true
+                        AppLogic.enablePmBasedOnTime(self.eveningReflectionsButton)
+                    }
                 }
             }
         }
