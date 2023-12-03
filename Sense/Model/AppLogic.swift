@@ -5,7 +5,7 @@
 //  Created by Andrea Bottino on 26/11/2023.
 //
 
-import Foundation
+import UIKit
 
 struct AppLogic {
     
@@ -48,5 +48,13 @@ struct AppLogic {
         } else {
             return "pm"
         }
+    }
+    
+    static func enableBasedOnTime(_ morningButton: UIButton, _ eveningButton: UIButton) {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        morningButton.isEnabled = hour > 12 ? false : true
+        eveningButton.isEnabled = hour > 12 ? true : false
     }
 }

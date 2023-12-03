@@ -21,8 +21,8 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         createCalendar()
     }
-    
-    
+
+
     @IBAction func logout(_ sender: UIBarButtonItem) {
         FirebaseMethods.Authentication.logout { result in
             switch result {
@@ -56,8 +56,28 @@ class CalendarViewController: UIViewController {
         calendarView.locale = Locale(identifier: "en_GB")
         calendarView.delegate = self
         calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCalendarContent" {
+            let destinationVC = segue.destination as? CalendarContentViewController
+            destinationVC?.delegate = self
+            destinationVC?.currentDate = formattedDate
+            
+            if let sheet = destinationVC?.sheetPresentationController {
+                sheet.detents = [.custom(resolver: { context in
+                    return context.maximumDetentValue * 0.33
+                })]
+                sheet.preferredCornerRadius = 10
+            }
+            
+        } else if segue.identifier == "showEntryContent" {
+            let destinationVC = segue.destination as? DiaryEntryViewController
+            destinationVC?.entryContent = entryContent
+            destinationVC?.saveButton.isEnabled = false
+            destinationVC?.timeOfDay = timeOfDayToPass
+            destinationVC?.currentDate = formattedDate
+        }
     }
 }
 
@@ -105,33 +125,10 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
         }
         return nil
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCalendarContent" {
-            let destinationVC = segue.destination as? CalendarContentViewController
-            destinationVC?.delegate = self
-            destinationVC?.currentDate = formattedDate
-            
-            if let sheet = destinationVC?.sheetPresentationController {
-                sheet.detents = [.custom(resolver: { context in
-                    return context.maximumDetentValue * 0.33
-                })]
-                sheet.preferredCornerRadius = 10
-            }
-            
-        } else if segue.identifier == "showEntryContent" {
-            let destinationVC = segue.destination as? DiaryEntryViewController
-            destinationVC?.entryContent = entryContent
-            destinationVC?.saveButton.isEnabled = false
-            destinationVC?.timeOfDay = timeOfDayToPass
-            destinationVC?.currentDate = formattedDate
-        }
-    }
 }
 
 extension CalendarViewController: CalendarContentViewDelegate {
-    
+
     func showDiaryEntryContent(_ buttonTitle: String) {
         if let userId = Auth.auth().currentUser?.uid {
             

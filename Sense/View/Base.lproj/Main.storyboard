@@ -223,6 +223,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dailyIntentionsButton" destination="Bsx-Xb-BwU" id="lsI-OU-VBt"/>
+                        <outlet property="eveningReflectionsButton" destination="Hcn-xW-Lzv" id="cC4-vO-aLZ"/>
                         <segue destination="fMU-C6-Ddy" kind="show" identifier="makeEntry" id="NaV-o0-DOZ"/>
                     </connections>
                 </viewController>
@@ -587,7 +589,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="h79-2y-j3O"/>
-        <segue reference="aQP-XD-r1P"/>
+        <segue reference="NaV-o0-DOZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="95"/>

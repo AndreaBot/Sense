@@ -10,15 +10,44 @@ import FirebaseAuth
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var dailyIntentionsButton: UIButton!
+    @IBOutlet weak var eveningReflectionsButton: UIButton!
+    
+    
     var screenTitle = ""
     var timeOfDay = ""
     var firstLabelText = ""
     var secondLabelText = ""
     var backgroundColor = UIColor()
+    var currentDate = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currentDate = AppLogic.getDate()
+        AppLogic.enableBasedOnTime(dailyIntentionsButton, eveningReflectionsButton)
+        if let userId = Auth.auth().currentUser?.uid {
+            FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
+                    self.dailyIntentionsButton.isEnabled = false
+                case(.failure(_)):
+                    self.dailyIntentionsButton.isEnabled = true
+                }
+            }
+            FirebaseMethods.Database.checkForDoc("pm", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
+                    self.eveningReflectionsButton.isEnabled = false
+                case(.failure(_)):
+                    self.eveningReflectionsButton.isEnabled = true
+                }
+            }
+        }
     }
     
     
@@ -55,6 +84,31 @@ class MainViewController: UIViewController {
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
+    
+    func checkDatabase() {
+        if let userId = Auth.auth().currentUser?.uid {
+            
+            FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
+                    self.dailyIntentionsButton.isEnabled = false
+                case(.failure((_))):
+                    self.dailyIntentionsButton.isEnabled = true
+                }
+            }
+            
+            FirebaseMethods.Database.checkForDoc("pm", currentDate, userId) { result in
+                switch result {
+                case(.success(())):
+                    self.eveningReflectionsButton.isEnabled = false
+                case(.failure((_))):
+                    self.eveningReflectionsButton.isEnabled = true
+                }
+            }
+        }
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "makeEntry" {
