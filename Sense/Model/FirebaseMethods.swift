@@ -99,12 +99,12 @@ struct FirebaseMethods {
                 }
             }
         }
-
+        
         static func createDiaryEntryModel(_ docSnapshot: DocumentSnapshot?) -> DiaryEntryModel? {
             guard let data = docSnapshot?.data() else {
                 return nil
             }
-
+            
             let timeOfDay = data["timeOfDay"] as? String
             let mood = data["mood"] as? String
             let text1 = data["txtField1"] as? String
@@ -127,6 +127,21 @@ struct FirebaseMethods {
                 diaryText: diaryText
             )
             return entryContent
+        }
+        
+        static func getDaysWithEvents(_ userId: String, _ date: String, completion: @escaping (Result<String, Error>) -> Void) {
+            let documentRef = db.collection(userId).document(date).collection(date)
+            
+            documentRef.getDocuments { querySnapshot, error in
+                if let e = error {
+                    print(e)
+                    completion(.failure(e))
+                } else {
+                    if querySnapshot!.documents.count > 0 {
+                        completion(.success(documentRef.collectionID))
+                    }
+                }
+            }
         }
     }
 }

@@ -13,11 +13,15 @@ class CalendarViewController: UIViewController {
     var formattedDate = ""
     var entryContent: DiaryEntryModel?
     var timeOfDayToPass = ""
+    var dates = [String]()
+    var components = [DateComponents]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createCalendar()
     }
+    
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         FirebaseMethods.Authentication.logout { result in
@@ -44,14 +48,15 @@ class CalendarViewController: UIViewController {
         let calendarHeight: CGFloat = view.frame.height * 0.8
         
         calendarView.frame = CGRect(x: view.center.x - (calendarWidth / 2),
-                             y: view.center.y - (calendarHeight / 2),
-                             width: calendarWidth,
-                             height: calendarHeight)
-
+                                    y: view.center.y - (calendarHeight / 2),
+                                    width: calendarWidth,
+                                    height: calendarHeight)
+        
         calendarView.calendar = .current
         calendarView.locale = Locale(identifier: "en_GB")
-        //calendarView.delegate = self
+        calendarView.delegate = self
         calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
+        
         
     }
 }
@@ -67,8 +72,41 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
             performSegue(withIdentifier: "showCalendarContent", sender: self)
         }
     }
-
-
+    
+    func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+        if let userId = Auth.auth().currentUser?.uid {
+            let day = String(dateComponents.day!)
+            let month = String(dateComponents.month!)
+            let year = String(dateComponents.year!)
+            let oneDate = day + month + year
+            
+            FirebaseMethods.Database.getDaysWithEvents(userId, oneDate) { result in
+                switch result {
+                case .success(let date):
+                    if !self.dates.contains(date) {
+                        self.dates.append(date)
+                        self.components.append(dateComponents)
+                        
+                        DispatchQueue.main.async {
+                            calendarView.reloadDecorations(forDateComponents: self.components, animated: true)
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+            for d in dates {
+                if oneDate == d {
+                    return UICalendarView.Decoration.default(color: .systemGreen, size: .medium)
+                }
+            }
+        }
+        return nil
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCalendarContent" {
             let destinationVC = segue.destination as? CalendarContentViewController
@@ -109,3 +147,4 @@ extension CalendarViewController: CalendarContentViewDelegate {
         }
     }
 }
+
