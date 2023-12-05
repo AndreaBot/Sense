@@ -142,6 +142,6 @@ struct FirebaseMethods {
                     }
                 }
             }
-        }
+        } 
     }
 }

@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController {
         createCalendar()
     }
 
-
+    
     @IBAction func logout(_ sender: UIBarButtonItem) {
         FirebaseMethods.Authentication.logout { result in
             switch result {
@@ -56,6 +56,7 @@ class CalendarViewController: UIViewController {
         calendarView.locale = Locale(identifier: "en_GB")
         calendarView.delegate = self
         calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
+        calendarView.availableDateRange = DateInterval(start: .distantPast, end: .now)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,11 +128,11 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
     }
 }
 
-extension CalendarViewController: CalendarContentViewDelegate {
 
+extension CalendarViewController: CalendarContentViewDelegate {
+    
     func showDiaryEntryContent(_ buttonTitle: String) {
         if let userId = Auth.auth().currentUser?.uid {
-            
             FirebaseMethods.Database.getDoc(userId, formattedDate, buttonTitle) { [self] entry in
                 if let entry = entry {
                     entryContent = entry
@@ -144,4 +145,6 @@ extension CalendarViewController: CalendarContentViewDelegate {
         }
     }
 }
+
+
 
