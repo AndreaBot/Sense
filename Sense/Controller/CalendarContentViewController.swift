@@ -59,7 +59,7 @@ class CalendarContentViewController: UIViewController {
             }
         }
     }
-
+    
     func createNoDataLabel() {
         let label = UILabel()
         view.addSubview(label)
