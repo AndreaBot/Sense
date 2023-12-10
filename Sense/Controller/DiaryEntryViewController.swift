@@ -39,7 +39,6 @@ class DiaryEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = backgroundColor
         if currentDate == "" {
             currentDate = AppLogic.getDate()

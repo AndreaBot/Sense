@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         _ = Firestore.firestore()
         IQKeyboardManager.shared.enable = true
+        UITabBar.appearance().tintColor = UIColor(named: "PinkColor")
         return true
     }
 

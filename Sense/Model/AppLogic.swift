@@ -43,7 +43,7 @@ struct AppLogic {
     }
     
     static func convertButtonTitleToDocName(_ buttonTitle: String) -> String {
-        if buttonTitle == "Morning Intentions" {
+        if buttonTitle == "Daily Intentions" {
             return "am"
         } else {
             return "pm"

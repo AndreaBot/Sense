@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class MainViewController: UIViewController {
     
+    
+    @IBOutlet weak var buttonsContainerView: UIView!
     @IBOutlet weak var dailyIntentionsButton: UIButton!
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     
@@ -23,6 +25,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+// self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Apricot-Alternates", size: 15)!]
+        title = "Sense"
+        buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.height/30
+        buttonsContainerView.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

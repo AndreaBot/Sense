@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var calendarContainerView: UIView!
+    
     var formattedDate = ""
     var entryContent: DiaryEntryModel?
     var timeOfDayToPass = ""
@@ -19,9 +21,10 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Calendar"
         createCalendar()
     }
-
+   
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         FirebaseMethods.Authentication.logout { result in
@@ -42,21 +45,24 @@ class CalendarViewController: UIViewController {
     
     func createCalendar() {
         let calendarView = UICalendarView()
-        view.addSubview(calendarView)
-        calendarView.center = view.center
-        let calendarWidth: CGFloat = view.frame.width * 0.9
-        let calendarHeight: CGFloat = view.frame.height * 0.8
-        
-        calendarView.frame = CGRect(x: view.center.x - (calendarWidth / 2),
-                                    y: view.center.y - (calendarHeight / 2),
-                                    width: calendarWidth,
-                                    height: calendarHeight)
+        calendarContainerView.layer.cornerRadius = calendarContainerView.frame.height/30
+        calendarContainerView.clipsToBounds = true
+        calendarContainerView.addSubview(calendarView)
+
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendarView.leadingAnchor.constraint(equalTo: calendarContainerView.leadingAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: calendarContainerView.trailingAnchor),
+            calendarView.topAnchor.constraint(equalTo: calendarContainerView.topAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: calendarContainerView.bottomAnchor)
+        ])
         
         calendarView.calendar = .current
         calendarView.locale = Locale(identifier: "en_GB")
         calendarView.delegate = self
         calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
         calendarView.availableDateRange = DateInterval(start: .distantPast, end: .now)
+        calendarView.tintColor = UIColor(named: "BlueColor")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,9 +73,9 @@ class CalendarViewController: UIViewController {
             
             if let sheet = destinationVC?.sheetPresentationController {
                 sheet.detents = [.custom(resolver: { context in
-                    return context.maximumDetentValue * 0.33
+                    return context.maximumDetentValue * 0.2
                 })]
-                sheet.preferredCornerRadius = 10
+                sheet.preferredCornerRadius = 15
             }
             
         } else if segue.identifier == "showEntryContent" {
@@ -120,7 +126,7 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
             
             for d in dates {
                 if oneDate == d {
-                    return UICalendarView.Decoration.default(color: .systemGreen, size: .medium)
+                    return UICalendarView.Decoration.default(color: UIColor(named: "PinkColor"), size: .medium)
                 }
             }
         }
