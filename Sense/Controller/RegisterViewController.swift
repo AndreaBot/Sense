@@ -14,32 +14,33 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
-    //@IBOutlet weak var emailLabel: UILabel!
-    // @IBOutlet weak var passwordLabel: UILabel!
-    //@IBOutlet weak var repeatPasswordLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
     let showPasswordButton = UIButton()
     let showRepeatPasswordButton = UIButton()
+    let eyeImage = UIImage(systemName: "eye")
+    let eyeSlashImage = UIImage(systemName: "eye.slash")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Register"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
-        navigationItem.hidesBackButton = false
         setupUI()
     }
     
     func setupUI() {
+        title = "Register"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationItem.hidesBackButton = false
+        
+        registerButton.layer.cornerRadius = registerButton.frame.height/7
         setShowPasswordButton(showPasswordButton)
         setShowPasswordButton(showRepeatPasswordButton)
         
-        let firstCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 40))
+        let firstCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
         firstCustomRightView.addSubview(showPasswordButton)
         
-        let secondCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 40))
+        let secondCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
         secondCustomRightView.addSubview(showRepeatPasswordButton)
         
         passwordTextField.rightView = firstCustomRightView
@@ -47,15 +48,11 @@ class RegisterViewController: UIViewController {
         
         repeatPasswordTextField.rightView = secondCustomRightView
         repeatPasswordTextField.rightViewMode = .always
-        
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.backgroundColor = .systemBlue
-        registerButton.layer.cornerRadius = 10
     }
     
     func setShowPasswordButton(_ button: UIButton) {
         button.frame = CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.setImage(eyeSlashImage, for: .normal)
         button.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
         button.tintColor = .label
     }
@@ -65,13 +62,13 @@ class RegisterViewController: UIViewController {
         if passwordTextField.isSecureTextEntry == true {
             passwordTextField.isSecureTextEntry = false
             repeatPasswordTextField.isSecureTextEntry = false
-            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
-            showRepeatPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            showPasswordButton.setImage(eyeImage, for: .normal)
+            showRepeatPasswordButton.setImage(eyeImage, for: .normal)
         } else {
             passwordTextField.isSecureTextEntry = true
             repeatPasswordTextField.isSecureTextEntry = true
-            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-            showRepeatPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showPasswordButton.setImage(eyeSlashImage, for: .normal)
+            showRepeatPasswordButton.setImage(eyeSlashImage, for: .normal)
         }
     }
     
