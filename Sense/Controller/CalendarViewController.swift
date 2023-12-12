@@ -45,7 +45,7 @@ class CalendarViewController: UIViewController {
     
     func createCalendar() {
         let calendarView = UICalendarView()
-        calendarContainerView.layer.cornerRadius = calendarContainerView.frame.height/30
+        calendarContainerView.layer.cornerRadius = calendarContainerView.frame.width/30
         calendarContainerView.clipsToBounds = true
         calendarContainerView.addSubview(calendarView)
 

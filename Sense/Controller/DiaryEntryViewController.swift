@@ -26,6 +26,7 @@ class DiaryEntryViewController: UIViewController {
     @IBOutlet weak var txtField5: UITextField!
     @IBOutlet weak var txtField6: UITextField!
     @IBOutlet weak var diaryEntry: UITextView!
+    @IBOutlet var containerViews: [UIView]!
     
     var mood = ""
     var currentDate = ""
@@ -33,20 +34,22 @@ class DiaryEntryViewController: UIViewController {
     var timeOfDay = ""
     var firstLabelText = ""
     var secondLabelText = ""
-    var backgroundColor = UIColor.systemGray
+    var containerViewsBackgroundColor = UIColor()
     var entryContent: DiaryEntryModel?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgroundColor
         if currentDate == "" {
             currentDate = AppLogic.getDate()
         }
         setupView()
         let exitKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(exitKeyboard)
-        
+        for container in containerViews {
+            container.backgroundColor = containerViewsBackgroundColor
+            container.layer.cornerRadius = container.frame.width/35
+        }
     }
     
     @objc func hideKeyboard() {
@@ -150,7 +153,7 @@ class DiaryEntryViewController: UIViewController {
     }
     
     func enableButton(_ button: UIButton) {
-        button.layer.borderColor = CGColor(red: 0, green: 0.7, blue: 1, alpha: 1)
+        button.layer.borderColor = UIColor(named: "PinkColor")?.cgColor
         button.layer.cornerRadius = happyMoodButton.frame.height/2
         button.layer.borderWidth = happyMoodButton.frame.height/8
         button.alpha = 1

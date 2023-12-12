@@ -19,15 +19,14 @@ class MainViewController: UIViewController {
     var timeOfDay = ""
     var firstLabelText = ""
     var secondLabelText = ""
-    var backgroundColor = UIColor()
+    var containerViewsBackgroundColor = UIColor()
     var currentDate = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-// self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Apricot-Alternates", size: 15)!]
         title = "Sense"
-        buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.height/30
+        buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.width/30
         buttonsContainerView.clipsToBounds = true
     }
     
@@ -42,14 +41,14 @@ class MainViewController: UIViewController {
         
         if sender.currentTitle == "Daily Intensions" {
             timeOfDay = "am"
-            firstLabelText = "Today's positive intentions"
-            secondLabelText = "Top 3 To-Do's"
-            backgroundColor = UIColor.systemYellow
+            firstLabelText = "Today's positive intentions:"
+            secondLabelText = "Top 3 To-Do's:"
+            containerViewsBackgroundColor = UIColor(named: "OrangeColor")!
         } else {
             timeOfDay = "pm"
-            firstLabelText = "Three things I did well today"
-            secondLabelText = "Three thing I could improve on"
-            backgroundColor = UIColor.systemPurple
+            firstLabelText = "Three things I did well today:"
+            secondLabelText = "Three thing I could improve on:"
+            containerViewsBackgroundColor = UIColor(named: "BlueColor")!
         }
         performSegue(withIdentifier: "makeEntry", sender: self)
     }
@@ -105,7 +104,7 @@ class MainViewController: UIViewController {
             destinationVC?.timeOfDay = timeOfDay
             destinationVC?.firstLabelText = firstLabelText
             destinationVC?.secondLabelText = secondLabelText
-            destinationVC?.backgroundColor = backgroundColor
+            destinationVC?.containerViewsBackgroundColor = containerViewsBackgroundColor
             destinationVC?.editButton.isHidden = true
         }
     }
