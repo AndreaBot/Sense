@@ -29,7 +29,7 @@ class LaunchScreenViewController: UIViewController {
                     self.quoteContainerView.alpha = 1
                 }, completion: nil)
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                     UIView.transition(with: self.continueButton, duration: 1, options: .transitionCrossDissolve, animations: {
                         self.continueButton.alpha = 1
                     }, completion: nil)
@@ -46,7 +46,7 @@ class LaunchScreenViewController: UIViewController {
         quoteContainerView.backgroundColor = UIColor(white: 0.6, alpha: 0.2)
         quoteContainerView.alpha = 0
         continueButton.alpha = 0
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             QuoteGenerator.performRequest()
         }
     }

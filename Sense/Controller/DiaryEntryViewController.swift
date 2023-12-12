@@ -46,10 +46,6 @@ class DiaryEntryViewController: UIViewController {
         setupView()
         let exitKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(exitKeyboard)
-        for container in containerViews {
-            container.backgroundColor = containerViewsBackgroundColor
-            container.layer.cornerRadius = container.frame.width/35
-        }
     }
     
     @objc func hideKeyboard() {
@@ -134,6 +130,11 @@ class DiaryEntryViewController: UIViewController {
         txtField4.delegate = self
         txtField5.delegate = self
         txtField6.delegate = self
+        for container in containerViews {
+            container.backgroundColor = containerViewsBackgroundColor
+            container.layer.cornerRadius = container.frame.width/35
+        }
+        diaryEntry.layer.cornerRadius = diaryEntry.frame.width/60
     }
     
     func highlightSelectedMood(_ mood: String) {

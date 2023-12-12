@@ -16,7 +16,7 @@ protocol CalendarContentViewDelegate {
 class CalendarContentViewController: UIViewController {
     
     
-    @IBOutlet weak var morningIntentionsButton: UIButton!
+    @IBOutlet weak var dailyIntentionsButton: UIButton!
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     
     var currentDate = ""
@@ -25,7 +25,10 @@ class CalendarContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        morningIntentionsButton.isHidden = true
+        eveningReflectionsButton.titleLabel?.numberOfLines = 1
+        dailyIntentionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        eveningReflectionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        dailyIntentionsButton.isHidden = true
         eveningReflectionsButton.isHidden = true
         checkDatabase()
     }
@@ -38,10 +41,10 @@ class CalendarContentViewController: UIViewController {
             FirebaseMethods.Database.checkForDoc("am", currentDate, userId) { result in
                 switch result {
                 case .success:
-                    self.morningIntentionsButton.isHidden = false
+                    self.dailyIntentionsButton.isHidden = false
                     isMorningButtonHidden = false
                 case .failure:
-                    self.morningIntentionsButton.isHidden = true
+                    self.dailyIntentionsButton.isHidden = true
                 }
                 
                 FirebaseMethods.Database.checkForDoc("pm", self.currentDate, userId) { result in

@@ -84,6 +84,7 @@ class CalendarViewController: UIViewController {
             destinationVC?.saveButton.isEnabled = false
             destinationVC?.timeOfDay = timeOfDayToPass
             destinationVC?.currentDate = formattedDate
+            destinationVC?.containerViewsBackgroundColor = timeOfDayToPass == "am" ? UIColor(named: "OrangeColor")! : UIColor(named: "BlueColor")!
         }
     }
 }

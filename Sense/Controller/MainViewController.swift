@@ -28,6 +28,10 @@ class MainViewController: UIViewController {
         title = "Sense"
         buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.width/30
         buttonsContainerView.clipsToBounds = true
+        dailyIntentionsButton.titleLabel?.numberOfLines = 1
+        eveningReflectionsButton.titleLabel?.numberOfLines = 1
+        dailyIntentionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        eveningReflectionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
