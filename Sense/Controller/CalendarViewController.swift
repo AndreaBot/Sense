@@ -24,24 +24,6 @@ class CalendarViewController: UIViewController {
         title = "Calendar"
         createCalendar()
     }
-   
-    
-    @IBAction func logout(_ sender: UIBarButtonItem) {
-        FirebaseMethods.Authentication.logout { result in
-            switch result {
-            case .success(): self.resetVC()
-            case .failure(let error): self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
-            }
-        }
-    }
-    
-    func resetVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let targetViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-        let navigationController = UINavigationController(rootViewController: targetViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
-    }
     
     func createCalendar() {
         let calendarView = UICalendarView()

@@ -31,14 +31,10 @@ struct Notifications {
         let content = UNMutableNotificationContent()
         content.title = "Sense"
         content.body = "It's time for your morning session!"
-        
-        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: time)
-        
+        let components = Calendar.current.dateComponents([.hour, .minute], from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
         center.add(request)
     }
     
@@ -46,14 +42,10 @@ struct Notifications {
         let content = UNMutableNotificationContent()
         content.title = "Sense"
         content.body = "It's time for your evening session!"
-        
-        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: time)
-        
+        let components = Calendar.current.dateComponents([.hour, .minute], from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
         center.add(request)
     }
 }

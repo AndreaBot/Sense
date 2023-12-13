@@ -63,23 +63,6 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "makeEntry", sender: self)
     }
     
-    @IBAction func logout(_ sender: UIBarButtonItem) {
-        FirebaseMethods.Authentication.logout { result in
-            switch result {
-            case .success(): self.resetVC()
-            case .failure(let error): self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
-            }
-        }
-    }
-    
-    func resetVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let targetViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-        let navigationController = UINavigationController(rootViewController: targetViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
-    }
-    
     func checkDatabase() {
         if let userId = Auth.auth().currentUser?.uid {
             currentDate = AppLogic.getDate()
@@ -105,7 +88,7 @@ class MainViewController: UIViewController {
             }
         }
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "makeEntry" {
