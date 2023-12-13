@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -22,10 +23,16 @@ class MainViewController: UIViewController {
     var containerViewsBackgroundColor = UIColor()
     var currentDate = ""
     
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Sense"
+        
+        if AppLogic.dontShowAgain == false {
+            Notifications.askForPermission(self)
+        }
+        
         buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.width/30
         buttonsContainerView.clipsToBounds = true
         dailyIntentionsButton.titleLabel?.numberOfLines = 1
@@ -38,7 +45,6 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         checkDatabase()
     }
-    
     
     @IBAction func diaryEntryPressed(_ sender: UIButton) {
         screenTitle = sender.currentTitle!

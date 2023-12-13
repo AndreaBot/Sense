@@ -8,8 +8,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
-import AVFoundation
-import AVKit
+
 
 class LaunchScreenViewController: UIViewController {
 
@@ -37,8 +36,9 @@ class LaunchScreenViewController: UIViewController {
             }
         }
     }
+    let defaults = UserDefaults.standard
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         QuoteGenerator.delegate = self
@@ -46,9 +46,13 @@ class LaunchScreenViewController: UIViewController {
         quoteContainerView.backgroundColor = UIColor(white: 0.6, alpha: 0.2)
         quoteContainerView.alpha = 0
         continueButton.alpha = 0
+        if let showAgainBool = defaults.object(forKey: "dontShowAgain") as? Bool {
+            AppLogic.dontShowAgain = showAgainBool
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             QuoteGenerator.performRequest()
         }
+        
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {

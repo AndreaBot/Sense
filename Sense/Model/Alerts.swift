@@ -9,7 +9,7 @@ import UIKit
 
 struct Alerts {
     
-    static func errorAlert( _ message: String) -> UIAlertController {
+    static func errorAlert(_ message: String) -> UIAlertController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Retry", style: .cancel))
         return alert
@@ -21,6 +21,19 @@ struct Alerts {
         let action = UIAlertAction(title: "Diary entry saved!", style: .default)
         action.setValue(confimationImage, forKey: "image")
         alert.addAction(action)
+        return alert
+    }
+    
+    static func notificationsAlert(_ title: String, _ message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { _ in
+            AppLogic.dontShowAgain = false
+            AppLogic.updateUserDefaults()
+        }))
+        alert.addAction(UIAlertAction(title: "Don't ask me again", style: .cancel, handler: { _ in
+            AppLogic.dontShowAgain = true
+            AppLogic.updateUserDefaults()
+        }))
         return alert
     }
 }

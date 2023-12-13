@@ -63,4 +63,11 @@ struct AppLogic {
         let hour = calendar.component(.hour, from: date)
         eveningButton.isEnabled = hour > 12 ? true : false
     }
+    
+    static var dontShowAgain = Bool()
+    
+    static func updateUserDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(AppLogic.dontShowAgain, forKey: "dontShowAgain")
+    }
 }

@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ral-v3-pw6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.7709923664122" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="746" y="3"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuI-D3-wrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="495"/>
+            <point key="canvasLocation" x="2529" y="502"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="9gb-ym-RWd">
@@ -380,7 +380,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58Y-bZ-D9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2389" y="-423"/>
+            <point key="canvasLocation" x="2529" y="-423"/>
+        </scene>
+        <!--Notification Menu View Controller-->
+        <scene sceneID="9TD-fA-HvI">
+            <objects>
+                <viewController id="p4v-FX-AZ0" customClass="NotificationMenuViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FyU-HJ-WQu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Axh-cz-hLx"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1X-nn-LNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3073" y="2338"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Buf-Vr-Rnm">
@@ -452,6 +467,7 @@
                         <outlet property="dailyIntentionsButton" destination="Bsx-Xb-BwU" id="lsI-OU-VBt"/>
                         <outlet property="eveningReflectionsButton" destination="Hcn-xW-Lzv" id="cC4-vO-aLZ"/>
                         <segue destination="fMU-C6-Ddy" kind="show" identifier="makeEntry" id="NaV-o0-DOZ"/>
+                        <segue destination="p4v-FX-AZ0" kind="presentation" identifier="setNotificationsMenu" id="1iV-mt-Wpu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhN-Dh-Yd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -507,7 +523,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mn6-l6-OrG">
-                                <rect key="frame" x="0.0" y="44" width="433" height="808"/>
+                                <rect key="frame" x="0.0" y="96" width="433" height="756"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XFr-OS-zx6" userLabel="General Stack View">
                                         <rect key="frame" x="0.0" y="20" width="433" height="1000"/>
@@ -572,13 +588,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7k-QE-Ofm" userLabel="Bullet Points Container View">
-                                                <rect key="frame" x="10" y="120" width="413" height="382"/>
+                                                <rect key="frame" x="10" y="120" width="413" height="373"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-5Y-Zdh" userLabel="Bullet Points Stack View">
-                                                        <rect key="frame" x="10" y="10" width="393" height="362"/>
+                                                        <rect key="frame" x="10" y="10" width="393" height="353"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KYz-pn-saT" userLabel="First Bullet Points Stack View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="166"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="161.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnU-cq-eEV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
@@ -587,23 +603,23 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-Xh-dB6">
-                                                                        <rect key="frame" x="0.0" y="30.5" width="393" height="135.5"/>
+                                                                        <rect key="frame" x="0.0" y="30.5" width="393" height="131"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogY-xN-myc">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="38.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="8qf-CW-3VU">
-                                                                                <rect key="frame" x="0.0" y="48.5" width="393" height="38"/>
+                                                                                <rect key="frame" x="0.0" y="47" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="5uV-N4-ihZ">
-                                                                                <rect key="frame" x="0.0" y="96.5" width="393" height="38.5"/>
+                                                                                <rect key="frame" x="0.0" y="94" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -615,7 +631,7 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MFO-bI-03y" userLabel="Second Bullet Points Stack View">
-                                                                <rect key="frame" x="0.0" y="196" width="393" height="166"/>
+                                                                <rect key="frame" x="0.0" y="191.5" width="393" height="161.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWs-9g-4ZL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
@@ -624,23 +640,23 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VKX-2e-laB">
-                                                                        <rect key="frame" x="0.0" y="30.5" width="393" height="135.5"/>
+                                                                        <rect key="frame" x="0.0" y="30.5" width="393" height="131"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-KL-pGA">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="38.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="fbV-Fy-I6F">
-                                                                                <rect key="frame" x="0.0" y="48.5" width="393" height="38"/>
+                                                                                <rect key="frame" x="0.0" y="47" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="1d7-JH-Rdw">
-                                                                                <rect key="frame" x="0.0" y="96.5" width="393" height="38.5"/>
+                                                                                <rect key="frame" x="0.0" y="94" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -663,10 +679,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-sK-Dzi" userLabel="Diary Entry Container View">
-                                                <rect key="frame" x="10" y="532" width="413" height="468"/>
+                                                <rect key="frame" x="10" y="523" width="413" height="477"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JtF-we-GB1" userLabel="Diary Entry Stack View">
-                                                        <rect key="frame" x="10" y="10" width="393" height="448"/>
+                                                        <rect key="frame" x="10" y="10" width="393" height="457"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diary Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Ai-ibS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
@@ -675,7 +691,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-JT-FdK">
-                                                                <rect key="frame" x="0.0" y="30.5" width="393" height="417.5"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="393" height="426.5"/>
                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -763,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWc-th-3hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4073" y="2277"/>
+            <point key="canvasLocation" x="4078" y="2422"/>
         </scene>
         <!--Calendar Content View Controller-->
         <scene sceneID="9Ay-st-VJe">
@@ -858,7 +874,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rds-LK-vbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="4"/>
+            <point key="canvasLocation" x="4063" y="3"/>
         </scene>
         <!--Diary-->
         <scene sceneID="Ovc-xi-SPv">
@@ -909,7 +925,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h79-2y-j3O"/>
+        <segue reference="Wug-Xm-6Al"/>
         <segue reference="NaV-o0-DOZ"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -922,7 +938,7 @@
             <color red="0.9100000262260437" green="0.55699998140335083" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TextFieldColor">
-            <color red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99000000953674316" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
