@@ -66,8 +66,15 @@ struct AppLogic {
     
     static var dontShowAgain = Bool()
     
-    static func updateUserDefaults() {
+    static func updateShowAgainUserDefaults() {
         let defaults = UserDefaults.standard
         defaults.set(AppLogic.dontShowAgain, forKey: "dontShowAgain")
+    }
+    
+    static var notificationsAlreadySet = Bool()
+    
+    static func updateAlreadySetUserDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(AppLogic.notificationsAlreadySet, forKey: "notificationsAlreadySet")
     }
 }

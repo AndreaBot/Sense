@@ -389,11 +389,109 @@
                     <view key="view" contentMode="scaleToFill" id="FyU-HJ-WQu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-2z-VOc" userLabel="Main Stack View">
+                                <rect key="frame" x="20" y="20" width="335" height="607"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PwJ-04-aFd" userLabel="Notifications Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="572.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-Wi-SU7" userLabel="AM Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="286.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="KVs-Yg-Uqd" userLabel=" Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWv-ws-oRn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="255" height="31"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-nQ-GzY">
+                                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Yr-Vn-Rox">
+                                                        <rect key="frame" x="0.0" y="31" width="335" height="255.5"/>
+                                                        <connections>
+                                                            <action selector="timePicked:" destination="p4v-FX-AZ0" eventType="valueChanged" id="ldK-8l-Vmc"/>
+                                                        </connections>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-Uo-l50" userLabel="PM Stack View">
+                                                <rect key="frame" x="0.0" y="286.5" width="335" height="286"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="108" translatesAutoresizingMaskIntoConstraints="NO" id="8NF-yO-ACU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zig-JL-cOV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="178" height="30.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKC-se-2lZ">
+                                                                <rect key="frame" x="286" y="0.0" width="51" height="30.5"/>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-dM-xPn">
+                                                        <rect key="frame" x="0.0" y="30.5" width="335" height="255.5"/>
+                                                        <connections>
+                                                            <action selector="timePicked:" destination="p4v-FX-AZ0" eventType="valueChanged" id="JP6-H3-u9p"/>
+                                                        </connections>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Bv-uYN">
+                                        <rect key="frame" x="0.0" y="572.5" width="335" height="34.5"/>
+                                        <color key="tintColor" name="PinkColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Set Reminders"/>
+                                        <connections>
+                                            <action selector="setReminderPressed:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="xb7-bu-nCu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Axh-cz-hLx"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="Axh-cz-hLx" firstAttribute="trailing" secondItem="Wn4-2z-VOc" secondAttribute="trailing" constant="20" id="IwN-hV-HGC"/>
+                            <constraint firstAttribute="bottom" secondItem="Wn4-2z-VOc" secondAttribute="bottom" constant="20" id="MY0-nF-vDH"/>
+                            <constraint firstItem="Wn4-2z-VOc" firstAttribute="top" secondItem="Axh-cz-hLx" secondAttribute="top" constant="20" id="cOZ-kt-9Mz"/>
+                            <constraint firstItem="Wn4-2z-VOc" firstAttribute="leading" secondItem="Axh-cz-hLx" secondAttribute="leading" constant="20" id="wlc-ZT-12W"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amTimePicker" destination="2Yr-Vn-Rox" id="6tK-pc-9BL"/>
+                        <outlet property="pmTimePicker" destination="nwc-dM-xPn" id="BRC-Th-seL"/>
+                        <outlet property="setReminderButton" destination="spg-Bv-uYN" id="AfO-F0-PqD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1X-nn-LNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="31" id="vkI-5c-ICZ" userLabel="PM Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="240.5" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zai-eF-q7I">
+                            <rect key="frame" x="0.0" y="0.0" width="160.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fed-6l-R1A">
+                            <rect key="frame" x="191.5" y="0.0" width="51" height="21"/>
+                        </switch>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="HQ5-Ln-Zlo"/>
+                </stackView>
             </objects>
             <point key="canvasLocation" x="3073" y="2338"/>
         </scene>

@@ -89,7 +89,7 @@ class DiaryEntryViewController: UIViewController {
                 switch result {
                 case .success():
                     print("Document successfully written!")
-                    self.present(Alerts.confirmationMessage(), animated: true)
+                    self.present(Alerts.confirmationMessage("Diary entry saved!"), animated: true)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         self.dismiss(animated: true)
                         self.navigationController?.popViewController(animated: true)

@@ -15,12 +15,13 @@ struct Alerts {
         return alert
     }
     
-    static func confirmationMessage() -> UIAlertController {
+    static func confirmationMessage(_ title: String) -> UIAlertController {
         let confimationImage = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Diary entry saved!", style: .default)
+        let action = UIAlertAction(title: title, style: .default)
         action.setValue(confimationImage, forKey: "image")
         alert.addAction(action)
+        alert.view.tintColor = UIColor(named: "PinkColor")
         return alert
     }
     
@@ -28,11 +29,11 @@ struct Alerts {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { _ in
             AppLogic.dontShowAgain = false
-            AppLogic.updateUserDefaults()
+            AppLogic.updateShowAgainUserDefaults()
         }))
         alert.addAction(UIAlertAction(title: "Don't ask me again", style: .cancel, handler: { _ in
             AppLogic.dontShowAgain = true
-            AppLogic.updateUserDefaults()
+            AppLogic.updateShowAgainUserDefaults()
         }))
         return alert
     }
