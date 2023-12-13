@@ -53,12 +53,12 @@ class MainViewController: UIViewController {
             timeOfDay = "am"
             firstLabelText = "Today's positive intentions:"
             secondLabelText = "Top 3 To-Do's:"
-            containerViewsBackgroundColor = UIColor(named: "OrangeColor")!
+            containerViewsBackgroundColor = UIColor(named: "CustomOrangeColor")!
         } else {
             timeOfDay = "pm"
             firstLabelText = "Three things I did well today:"
             secondLabelText = "Three thing I could improve on:"
-            containerViewsBackgroundColor = UIColor(named: "BlueColor")!
+            containerViewsBackgroundColor = UIColor(named: "CustomBlueColor")!
         }
         performSegue(withIdentifier: "makeEntry", sender: self)
     }

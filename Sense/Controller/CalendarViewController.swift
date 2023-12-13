@@ -44,7 +44,7 @@ class CalendarViewController: UIViewController {
         calendarView.delegate = self
         calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
         calendarView.availableDateRange = DateInterval(start: .distantPast, end: .now)
-        calendarView.tintColor = UIColor(named: "BlueColor")
+        calendarView.tintColor = UIColor(named: "CustomBlueColor")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +66,7 @@ class CalendarViewController: UIViewController {
             destinationVC?.saveButton.isEnabled = false
             destinationVC?.timeOfDay = timeOfDayToPass
             destinationVC?.currentDate = formattedDate
-            destinationVC?.containerViewsBackgroundColor = timeOfDayToPass == "am" ? UIColor(named: "OrangeColor")! : UIColor(named: "BlueColor")!
+            destinationVC?.containerViewsBackgroundColor = timeOfDayToPass == "am" ? UIColor(named: "CustomOrangeColor")! : UIColor(named: "CustomBlueColor")!
         }
     }
 }
@@ -109,7 +109,7 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
             
             for d in dates {
                 if oneDate == d {
-                    return UICalendarView.Decoration.default(color: UIColor(named: "PinkColor"), size: .medium)
+                    return UICalendarView.Decoration.default(color: UIColor(named: "CustomPinkColor"), size: .medium)
                 }
             }
         }

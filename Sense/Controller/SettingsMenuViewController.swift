@@ -14,6 +14,9 @@ class SettingsMenuViewController: UIViewController {
     @IBOutlet weak var pmTimePicker: UIDatePicker!
     @IBOutlet weak var setReminderButton: UIButton!
     
+    @IBOutlet weak var amStackView: UIStackView!
+    @IBOutlet weak var pmStackView: UIStackView!
+    
     var selectedAmTime = Date() {
         didSet {
             setReminderButton.isEnabled = true
@@ -29,9 +32,7 @@ class SettingsMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setReminderButton.isEnabled = false
-        setAvailableTimes(amTimePicker, 0, 11, 59)
-        setAvailableTimes(pmTimePicker, 12, 23, 59)
+        setupUI()
     }
     
     @IBAction func logoutPressed(_ sender: UIButton) {
@@ -69,6 +70,15 @@ class SettingsMenuViewController: UIViewController {
         }
     }
     
+    func setupUI() {
+        setReminderButton.isEnabled = false
+        setAvailableTimes(amTimePicker, 0, 11, 59)
+        setAvailableTimes(pmTimePicker, 12, 23, 59)
+        amStackView.backgroundColor = UIColor(named: "CustomOrangeColor")
+        amStackView.layer.cornerRadius = amStackView.frame.width/30
+        pmStackView.backgroundColor = UIColor(named: "CustomBlueColor")
+        pmStackView.layer.cornerRadius = pmStackView.frame.width/30
+    }
     func setAvailableTimes(_ datePicker: UIDatePicker, _ minH: Int, _ maxH: Int, _ maxM: Int) {
         let minDate = Calendar.current.date(bySettingHour: minH, minute: 0, second: 0, of: Date())
         let maxDate = Calendar.current.date(bySettingHour: maxH, minute: maxM, second: 0, of: Date())

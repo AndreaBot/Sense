@@ -63,7 +63,7 @@
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="TAP TO CONTINUE">
-                                                    <color key="titleColor" name="PinkColor"/>
+                                                    <color key="titleColor" name="CustomPinkColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="continueButtonPressed:" destination="lYS-Iv-Awe" eventType="touchUpInside" id="sGc-rn-L7G"/>
@@ -119,7 +119,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="REGISTER">
-                                                    <color key="titleColor" name="PinkColor"/>
+                                                    <color key="titleColor" name="CustomPinkColor"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="y7g-Ix-k1g" kind="show" id="ayR-nY-4Yp"/>
@@ -127,7 +127,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-m9-dLI">
                                                 <rect key="frame" x="0.0" y="65" width="335" height="55"/>
-                                                <color key="backgroundColor" name="PinkColor"/>
+                                                <color key="backgroundColor" name="CustomPinkColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="LOGIN">
@@ -227,7 +227,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-bQ-t1T">
                                 <rect key="frame" x="20" y="582" width="335" height="55"/>
-                                <color key="backgroundColor" name="PinkColor"/>
+                                <color key="backgroundColor" name="CustomPinkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="mv5-dU-jwk"/>
                                 </constraints>
@@ -344,7 +344,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fda-PF-oiv">
                                 <rect key="frame" x="20" y="582" width="335" height="55"/>
-                                <color key="backgroundColor" name="PinkColor"/>
+                                <color key="backgroundColor" name="CustomPinkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="nJS-bg-NCP"/>
                                 </constraints>
@@ -390,42 +390,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-2z-VOc" userLabel="Main Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-2z-VOc" userLabel="Main Stack View">
                                 <rect key="frame" x="20" y="20" width="335" height="607"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckq-5r-O2g">
-                                        <rect key="frame" x="129" y="0.0" width="77.5" height="31.5"/>
-                                        <color key="tintColor" name="PinkColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="32"/>
+                                        <color key="tintColor" name="CustomPinkColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Logout"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Logout">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="logoutPressed:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="e0o-bw-38i"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-Hg-acS">
-                                        <rect key="frame" x="51" y="61.5" width="233" height="31.5"/>
-                                        <color key="tintColor" name="PinkColor"/>
+                                        <rect key="frame" x="0.0" y="52" width="335" height="32"/>
+                                        <color key="tintColor" name="CustomPinkColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Open Notifications Settings"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Open Notifications Settings">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="openAppSettings:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="cBC-y2-BId"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PwJ-04-aFd" userLabel="Notifications Stack View">
-                                        <rect key="frame" x="7.5" y="123" width="320" height="430.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PwJ-04-aFd" userLabel="Notifications Stack View">
+                                        <rect key="frame" x="0.0" y="104" width="335" height="455.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-Wi-SU7" userLabel="AM Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="217.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWv-ws-oRn">
-                                                        <rect key="frame" x="80" y="0.0" width="160.5" height="18.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWv-ws-oRn">
+                                                        <rect key="frame" x="86" y="0.0" width="163.5" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yr-Vn-Rox">
-                                                        <rect key="frame" x="0.0" y="18.5" width="320" height="196.5"/>
+                                                        <rect key="frame" x="7.5" y="18.5" width="320" height="199"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="724254770.53021097">
                                                             <!--2023-12-14 13:52:50 +0000-->
                                                         </date>
@@ -436,16 +440,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-Uo-l50" userLabel="PM Stack View">
-                                                <rect key="frame" x="0.0" y="215" width="320" height="215.5"/>
+                                                <rect key="frame" x="0.0" y="237.5" width="335" height="218"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zig-JL-cOV">
-                                                        <rect key="frame" x="81" y="0.0" width="158" height="19"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zig-JL-cOV">
+                                                        <rect key="frame" x="87.5" y="0.0" width="160.5" height="19"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-dM-xPn">
-                                                        <rect key="frame" x="0.0" y="19" width="320" height="196.5"/>
+                                                        <rect key="frame" x="7.5" y="19" width="320" height="199"/>
                                                         <connections>
                                                             <action selector="timePicked:" destination="p4v-FX-AZ0" eventType="valueChanged" id="JP6-H3-u9p"/>
                                                         </connections>
@@ -455,10 +459,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Bv-uYN">
-                                        <rect key="frame" x="100" y="583.5" width="135" height="23.5"/>
-                                        <color key="tintColor" name="PinkColor"/>
+                                        <rect key="frame" x="0.0" y="579.5" width="335" height="27.5"/>
+                                        <color key="tintColor" name="CustomPinkColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Set Reminders"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Set Reminders">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="setReminderPressed:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="xb7-bu-nCu"/>
                                         </connections>
@@ -476,7 +482,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amStackView" destination="TIF-Wi-SU7" id="ZeD-a1-rBs"/>
                         <outlet property="amTimePicker" destination="2Yr-Vn-Rox" id="6tK-pc-9BL"/>
+                        <outlet property="pmStackView" destination="r7C-Uo-l50" id="ijc-sC-Hhp"/>
                         <outlet property="pmTimePicker" destination="nwc-dM-xPn" id="BRC-Th-seL"/>
                         <outlet property="setReminderButton" destination="spg-Bv-uYN" id="AfO-F0-PqD"/>
                     </connections>
@@ -561,7 +569,7 @@
                     <navigationItem key="navigationItem" id="P3Y-ad-ksd">
                         <barButtonItem key="rightBarButtonItem" id="enA-lh-azv">
                             <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="large"/>
-                            <color key="tintColor" name="PinkColor"/>
+                            <color key="tintColor" name="CustomPinkColor"/>
                             <connections>
                                 <segue destination="p4v-FX-AZ0" kind="presentation" id="Dmd-gq-qQh"/>
                             </connections>
@@ -604,7 +612,7 @@
                     <navigationItem key="navigationItem" id="w5P-Fj-61I">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="Tvt-sk-Cv9">
                             <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="large"/>
-                            <color key="tintColor" name="PinkColor"/>
+                            <color key="tintColor" name="CustomPinkColor"/>
                             <connections>
                                 <segue destination="p4v-FX-AZ0" kind="presentation" id="BEt-k4-5ke"/>
                             </connections>
@@ -718,14 +726,14 @@
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="8qf-CW-3VU">
-                                                                                <rect key="frame" x="0.0" y="47" width="393" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="47" width="393" height="36.5"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="5uV-N4-ihZ">
-                                                                                <rect key="frame" x="0.0" y="94" width="393" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="93.5" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -740,29 +748,29 @@
                                                                 <rect key="frame" x="0.0" y="191.5" width="393" height="161.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWs-9g-4ZL">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="22"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VKX-2e-laB">
-                                                                        <rect key="frame" x="0.0" y="30.5" width="393" height="131"/>
+                                                                        <rect key="frame" x="0.0" y="32" width="393" height="129.5"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-KL-pGA">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="36.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="fbV-Fy-I6F">
-                                                                                <rect key="frame" x="0.0" y="47" width="393" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="46.5" width="393" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="1d7-JH-Rdw">
-                                                                                <rect key="frame" x="0.0" y="94" width="393" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="93.5" width="393" height="36.5"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -849,13 +857,13 @@
                     <navigationItem key="navigationItem" id="ieb-NL-oBk">
                         <rightBarButtonItems>
                             <barButtonItem style="done" systemItem="save" id="7dP-0V-Shc">
-                                <color key="tintColor" name="PinkColor"/>
+                                <color key="tintColor" name="CustomPinkColor"/>
                                 <connections>
                                     <action selector="saveButtonpressed:" destination="fMU-C6-Ddy" id="sYB-g8-KMB"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Edit" id="S9h-nU-sNf">
-                                <color key="tintColor" name="PinkColor"/>
+                                <color key="tintColor" name="CustomPinkColor"/>
                                 <connections>
                                     <action selector="editButtonPressed:" destination="fMU-C6-Ddy" id="e0T-Q0-cqO"/>
                                 </connections>
@@ -1031,7 +1039,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wug-Xm-6Al"/>
+        <segue reference="h79-2y-j3O"/>
         <segue reference="aQP-XD-r1P"/>
         <segue reference="BEt-k4-5ke"/>
     </inferredMetricsTieBreakers>
@@ -1042,8 +1050,8 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
-        <namedColor name="PinkColor">
-            <color red="0.9100000262260437" green="0.55699998140335083" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="CustomPinkColor">
+            <color red="0.90588235859999999" green="0.55294120309999995" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TextFieldColor">
             <color red="0.99000000953674316" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

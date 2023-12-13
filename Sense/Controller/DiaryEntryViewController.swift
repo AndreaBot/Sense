@@ -154,7 +154,7 @@ class DiaryEntryViewController: UIViewController {
     }
     
     func enableButton(_ button: UIButton) {
-        button.layer.borderColor = UIColor(named: "PinkColor")?.cgColor
+        button.layer.borderColor = UIColor(named: "CustomPinkColor")?.cgColor
         button.layer.cornerRadius = happyMoodButton.frame.height/2
         button.layer.borderWidth = happyMoodButton.frame.height/8
         button.alpha = 1

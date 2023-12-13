@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     func setButtons() {
         registerButton.layer.cornerRadius = registerButton.frame.height/7
         registerButton.layer.borderWidth = registerButton.frame.height/18
-        registerButton.layer.borderColor = UIColor(named: "PinkColor")?.cgColor
+        registerButton.layer.borderColor = UIColor(named: "CustomPinkColor")?.cgColor
         loginButton.layer.cornerRadius = loginButton.frame.height/7
     }
 }
