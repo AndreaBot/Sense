@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         title = "Sense"
         
-        if AppLogic.dontShowAgain == false {
+        if Notifications.dontShowAgain == false {
             Notifications.askForPermission(self)
         }
         

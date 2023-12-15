@@ -28,12 +28,12 @@ struct Alerts {
     static func notificationsAlert(_ title: String, _ message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { _ in
-            AppLogic.dontShowAgain = false
-            AppLogic.updateShowAgainUserDefaults()
+            Notifications.dontShowAgain = false
+            Notifications.updateShowAgainUserDefaults()
         }))
         alert.addAction(UIAlertAction(title: "Don't ask me again", style: .cancel, handler: { _ in
-            AppLogic.dontShowAgain = true
-            AppLogic.updateShowAgainUserDefaults()
+            Notifications.dontShowAgain = true
+            Notifications.updateShowAgainUserDefaults()
         }))
         return alert
     }

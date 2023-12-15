@@ -18,12 +18,12 @@ class CalendarViewController: UIViewController {
     var dates = [String]()
     var components = [DateComponents]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Calendar"
         createCalendar()
     }
+   
     
     func createCalendar() {
         let calendarView = UICalendarView()

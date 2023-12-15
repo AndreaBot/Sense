@@ -64,17 +64,5 @@ struct AppLogic {
         eveningButton.isEnabled = hour > 12 ? true : false
     }
     
-    static var dontShowAgain = Bool()
     
-    static func updateShowAgainUserDefaults() {
-        let defaults = UserDefaults.standard
-        defaults.set(AppLogic.dontShowAgain, forKey: "dontShowAgain")
-    }
-    
-    static var notificationsAlreadySet = Bool()
-    
-    static func updateAlreadySetUserDefaults() {
-        let defaults = UserDefaults.standard
-        defaults.set(AppLogic.notificationsAlreadySet, forKey: "notificationsAlreadySet")
-    }
 }

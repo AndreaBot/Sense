@@ -10,16 +10,20 @@ import UserNotifications
 
 struct Notifications {
     
+    static let defaults = UserDefaults.standard
+    static var dontShowAgain = Bool()
+    static var notificationsAlreadySet = Bool()
+    static var amTime = Date()
+    static var pmTime = Date()
     static let center = UNUserNotificationCenter.current()
     
     static func askForPermission(_ vc: UIViewController) {
-        
         center.requestAuthorization(options: .alert) { accepted, error in
             if !accepted {
                 DispatchQueue.main.async{
                     vc.present(Alerts.notificationsAlert("Sense", "You can set up reminder notifications in your settings"), animated: true)
                 }
-            } else if AppLogic.notificationsAlreadySet == false {
+            } else if Notifications.notificationsAlreadySet == false {
                 DispatchQueue.main.async {
                     vc.performSegue(withIdentifier: "setNotificationsMenu", sender: self)
                 }
@@ -32,20 +36,60 @@ struct Notifications {
         content.title = "Sense"
         content.body = "It's time for your morning session!"
         let components = Calendar.current.dateComponents([.hour, .minute], from: time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         center.add(request)
     }
     
     static func setPmReminderTime(_ time: Date) {
+        center.removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
         content.title = "Sense"
         content.body = "It's time for your evening session!"
         let components = Calendar.current.dateComponents([.hour, .minute], from: time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         center.add(request)
+    }
+
+    
+    static func updateShowAgainUserDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(Notifications.dontShowAgain, forKey: "dontShowAgain")
+    }
+    
+    static func updateAlreadySetUserDefaults() {
+        defaults.set(Notifications.notificationsAlreadySet, forKey: "notificationsAlreadySet")
+    }
+    
+    static func updateDefaultTimes() {
+        defaults.set(Notifications.amTime, forKey: "amTime")
+        defaults.set(Notifications.pmTime, forKey: "pmTime")
+    }
+    
+    static func setAvailableTimes(_ datePicker: UIDatePicker, _ minH: Int, _ maxH: Int, _ maxM: Int) {
+        let date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
+        let minDate = Calendar.current.date(bySettingHour: minH, minute: 0, second: 0, of: date!)
+        let maxDate = Calendar.current.date(bySettingHour: maxH, minute: maxM, second: 0, of: date!)
+        datePicker.minimumDate = minDate
+        datePicker.maximumDate = maxDate
+    }
+    
+    static func setDefaultAmTime() -> Date? {
+        if let amTime = defaults.object(forKey: "amTime") {
+            return amTime as? Date
+        } else {
+            return nil
+        }
+    }
+    
+    static func setDefaultPmTime() -> Date? {
+        if let pmTime = defaults.object(forKey: "pmTime") {
+            return pmTime as? Date
+        } else {
+            return nil
+        }
     }
 }

@@ -47,10 +47,10 @@ class LaunchScreenViewController: UIViewController {
         quoteContainerView.alpha = 0
         continueButton.alpha = 0
         if let showAgainBool = defaults.object(forKey: "dontShowAgain") as? Bool {
-            AppLogic.dontShowAgain = showAgainBool
+            Notifications.dontShowAgain = showAgainBool
         }
         if let notificationsSetBool = defaults.object(forKey: "notificationsAlreadySet") as? Bool {
-            AppLogic.notificationsAlreadySet = notificationsSetBool
+            Notifications.notificationsAlreadySet = notificationsSetBool
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             QuoteGenerator.performRequest()

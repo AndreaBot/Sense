@@ -11,7 +11,6 @@
 		622A61102B20C664003EFD82 /* QuotesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A610F2B20C664003EFD82 /* QuotesGenerator.swift */; };
 		622A61122B20C8FE003EFD82 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A61112B20C8FE003EFD82 /* QuoteData.swift */; };
 		622A61182B20D8BA003EFD82 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A61172B20D8BA003EFD82 /* QuoteModel.swift */; };
-		624CEA142B261F78000AF797 /* Apricot - Alternates Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 624CEA132B261F78000AF797 /* Apricot - Alternates Regular.ttf */; };
 		624CEA162B29BD3F000AF797 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CEA152B29BD3F000AF797 /* Notifications.swift */; };
 		624CEA182B29C51A000AF797 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CEA172B29C51A000AF797 /* SettingsMenuViewController.swift */; };
 		6298E5E82B0E698A000FCF30 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298E5E72B0E698A000FCF30 /* CalendarContentViewController.swift */; };
@@ -38,7 +37,6 @@
 		622A610F2B20C664003EFD82 /* QuotesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesGenerator.swift; sourceTree = "<group>"; };
 		622A61112B20C8FE003EFD82 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		622A61172B20D8BA003EFD82 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
-		624CEA132B261F78000AF797 /* Apricot - Alternates Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apricot - Alternates Regular.ttf"; sourceTree = "<group>"; };
 		624CEA152B29BD3F000AF797 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		624CEA172B29C51A000AF797 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
 		6298E5E72B0E698A000FCF30 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				62A455322B08C68400ACD2E6 /* View */,
 				62A455302B08C65B00ACD2E6 /* Controller */,
 				62A455252B08C5EA00ACD2E6 /* Assets.xcassets */,
-				624CEA132B261F78000AF797 /* Apricot - Alternates Regular.ttf */,
 				62A455272B08C5EA00ACD2E6 /* LaunchScreen.storyboard */,
 				62A4552A2B08C5EA00ACD2E6 /* Info.plist */,
 				62A455432B08DFBC00ACD2E6 /* GoogleService-Info.plist */,
@@ -229,7 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624CEA142B261F78000AF797 /* Apricot - Alternates Regular.ttf in Resources */,
 				62A455292B08C5EA00ACD2E6 /* LaunchScreen.storyboard in Resources */,
 				62A455442B08DFBD00ACD2E6 /* GoogleService-Info.plist in Resources */,
 				62A455262B08C5EA00ACD2E6 /* Assets.xcassets in Resources */,
