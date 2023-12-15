@@ -16,12 +16,12 @@ struct Alerts {
     }
     
     static func confirmationMessage(_ title: String) -> UIAlertController {
-        let confimationImage = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        let confimationImage = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .semibold))?.withTintColor(UIColor(named: "CustomPinkColor")!, renderingMode: .alwaysOriginal)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action = UIAlertAction(title: title, style: .default)
         action.setValue(confimationImage, forKey: "image")
         alert.addAction(action)
-        alert.view.tintColor = UIColor(named: "PinkColor")
+        alert.view.tintColor = .label
         return alert
     }
     
@@ -31,7 +31,7 @@ struct Alerts {
             Notifications.dontShowAgain = false
             Notifications.updateShowAgainUserDefaults()
         }))
-        alert.addAction(UIAlertAction(title: "Don't ask me again", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Don't remind me again", style: .cancel, handler: { _ in
             Notifications.dontShowAgain = true
             Notifications.updateShowAgainUserDefaults()
         }))
