@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Firestore.firestore()
         IQKeyboardManager.shared.enable = true
         UITabBar.appearance().tintColor = UIColor(named: "CustomPinkColor")
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         return true
     }
 

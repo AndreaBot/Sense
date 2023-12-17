@@ -131,6 +131,9 @@ class DiaryEntryViewController: UIViewController {
             firstLabel.text = firstLabelText
             secondLabel.text = secondLabelText
             expandButton.isHidden = true
+            for container in containerViews {
+                container.backgroundColor = containerViewsBackgroundColor
+            }
         }
         txtField1.delegate = self
         txtField2.delegate = self
@@ -139,7 +142,6 @@ class DiaryEntryViewController: UIViewController {
         txtField5.delegate = self
         txtField6.delegate = self
         for container in containerViews {
-            container.backgroundColor = containerViewsBackgroundColor
             container.layer.cornerRadius = container.frame.width/35
         }
         diaryEntry.layer.cornerRadius = diaryEntry.frame.width/60
@@ -182,6 +184,9 @@ class DiaryEntryViewController: UIViewController {
         txtField5.isUserInteractionEnabled = false
         txtField6.isUserInteractionEnabled = false
         diaryEntry.isUserInteractionEnabled = false
+        for view in containerViews {
+            view.backgroundColor = containerViewsBackgroundColor.withAlphaComponent(0.7)
+        }
     }
     
     func enableUI() {
@@ -192,6 +197,9 @@ class DiaryEntryViewController: UIViewController {
         txtField5.isUserInteractionEnabled = true
         txtField6.isUserInteractionEnabled = true
         diaryEntry.isUserInteractionEnabled = true
+        for view in containerViews {
+            view.backgroundColor = containerViewsBackgroundColor
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -40,20 +40,21 @@ class ExpandedViewController: UIViewController {
             sender.setTitle("Cancel", for: .normal)
             diaryEntry.isUserInteractionEnabled = true
             diaryEntry.becomeFirstResponder()
-            containerView.backgroundColor = backgroundColor.withAlphaComponent(1)
+            containerView.backgroundColor = backgroundColor
         } else {
             sender.setTitle("Edit", for: .normal)
             diaryEntry.isUserInteractionEnabled = false
             diaryEntry.resignFirstResponder()
-            containerView.backgroundColor = backgroundColor.withAlphaComponent(0.5)
+            containerView.backgroundColor = backgroundColor.withAlphaComponent(0.7)
         }
     }
     
     func setupUI() {
         diaryEntry.isUserInteractionEnabled = false
         diaryEntry.text = text
-        containerView.backgroundColor = backgroundColor.withAlphaComponent(0.5)
+        containerView.backgroundColor = backgroundColor.withAlphaComponent(0.7)
         containerView.layer.cornerRadius = containerView.frame.width/35
         diaryEntry.layer.cornerRadius = diaryEntry.frame.width/60
     }
 }
+
