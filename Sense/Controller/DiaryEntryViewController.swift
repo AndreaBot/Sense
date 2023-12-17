@@ -177,6 +177,9 @@ class DiaryEntryViewController: UIViewController {
     }
     
     func disableUI() {
+        happyMoodButton.isUserInteractionEnabled = false
+        neutralMoodButton.isUserInteractionEnabled = false
+        sadMoodButton.isUserInteractionEnabled = false
         txtField1.isUserInteractionEnabled = false
         txtField2.isUserInteractionEnabled = false
         txtField3.isUserInteractionEnabled = false
@@ -190,6 +193,9 @@ class DiaryEntryViewController: UIViewController {
     }
     
     func enableUI() {
+        happyMoodButton.isUserInteractionEnabled = true
+        neutralMoodButton.isUserInteractionEnabled = true
+        sadMoodButton.isUserInteractionEnabled = true
         txtField1.isUserInteractionEnabled = true
         txtField2.isUserInteractionEnabled = true
         txtField3.isUserInteractionEnabled = true
