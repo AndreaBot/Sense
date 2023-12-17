@@ -39,10 +39,12 @@ class ExpandedViewController: UIViewController {
         if sender.currentTitle == "Edit" {
             sender.setTitle("Cancel", for: .normal)
             diaryEntry.isUserInteractionEnabled = true
+            diaryEntry.becomeFirstResponder()
             containerView.backgroundColor = backgroundColor.withAlphaComponent(1)
         } else {
             sender.setTitle("Edit", for: .normal)
             diaryEntry.isUserInteractionEnabled = false
+            diaryEntry.resignFirstResponder()
             containerView.backgroundColor = backgroundColor.withAlphaComponent(0.5)
         }
     }
