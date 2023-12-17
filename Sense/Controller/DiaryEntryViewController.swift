@@ -65,11 +65,11 @@ class DiaryEntryViewController: UIViewController {
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if sender.title == "Edit" {
             sender.title = "Cancel"
-            view.isUserInteractionEnabled = true
+            enableUI()
             saveButton.isEnabled = true
         } else {
             sender.title = "Edit"
-            view.isUserInteractionEnabled = false
+            disableUI()
             saveButton.isEnabled = false
         }
     }
@@ -117,7 +117,7 @@ class DiaryEntryViewController: UIViewController {
             firstLabel.text = AppLogic.convertFirstLabelText((passedContent.timeOfDay)!)
             secondLabel.text = AppLogic.convertSecondLabelText((passedContent.timeOfDay)!)
             
-            view.isUserInteractionEnabled = false
+            disableUI()
             
         } else {
             title = screenTitle
@@ -163,6 +163,18 @@ class DiaryEntryViewController: UIViewController {
     func disableButton(_ button: UIButton) {
         button.layer.borderWidth = 0
         button.alpha = 0.4
+    }
+    
+    func disableUI() {
+        for view in containerViews {
+            view.isUserInteractionEnabled = false
+        }
+    }
+    
+    func enableUI() {
+        for view in containerViews {
+            view.isUserInteractionEnabled = true
+        }
     }
 }
 
