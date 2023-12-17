@@ -43,6 +43,18 @@ struct FirebaseMethods {
                 completion(.failure(signOutError))
             }
         }
+        
+        static func deleteAccount(completion: @escaping (Result<Void, Error>) -> Void) {
+            if let user = Auth.auth().currentUser {
+                user.delete { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
+            }
+        }
     }
     
     struct Database {
@@ -142,6 +154,7 @@ struct FirebaseMethods {
                     }
                 }
             }
-        } 
+        }
     }
 }
+

@@ -18,14 +18,14 @@ class CalendarViewController: UIViewController {
     var dates = [String]()
     var components = [DateComponents]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Calendar"
         createCalendar()
     }
-   
     
-    func createCalendar() {
+    func createCalendar(){
         let calendarView = UICalendarView()
         calendarContainerView.layer.cornerRadius = calendarContainerView.frame.width/30
         calendarContainerView.clipsToBounds = true
@@ -83,38 +83,42 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
         }
     }
     
-    func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-        if let userId = Auth.auth().currentUser?.uid {
-            let day = String(dateComponents.day!)
-            let month = String(dateComponents.month!)
-            let year = String(dateComponents.year!)
-            let oneDate = day + month + year
-            
-            FirebaseMethods.Database.getDaysWithEvents(userId, oneDate) { result in
-                switch result {
-                case .success(let date):
-                    if !self.dates.contains(date) {
-                        self.dates.append(date)
-                        self.components.append(dateComponents)
-                        
-                        DispatchQueue.main.async {
-                            calendarView.reloadDecorations(forDateComponents: self.components, animated: true)
+        func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+    
+            if let userId = Auth.auth().currentUser?.uid {
+                let day = String(dateComponents.day!)
+                let month = String(dateComponents.month!)
+                let year = String(dateComponents.year!)
+                let oneDate = day + month + year
+    
+    
+                FirebaseMethods.Database.getDaysWithEvents(userId, oneDate) { result in
+                    switch result {
+                    case .success(let date):
+    
+                        if !self.dates.contains(date) {
+                            self.dates.append(date)
+                            self.components.append(dateComponents)
+    
+                            DispatchQueue.main.async {
+                                calendarView.reloadDecorations(forDateComponents: self.components, animated: true)
+                            }
                         }
+    
+                    case .failure(let error):
+                        print(error)
                     }
-                    
-                case .failure(let error):
-                    print(error)
+                }
+    
+                for d in dates {
+                    if oneDate == d {
+                        return UICalendarView.Decoration.default(color: UIColor(named: "CustomPinkColor"), size: .medium)
+                    }
                 }
             }
-            
-            for d in dates {
-                if oneDate == d {
-                    return UICalendarView.Decoration.default(color: UIColor(named: "CustomPinkColor"), size: .medium)
-                }
-            }
+            return nil
         }
-        return nil
-    }
+    
 }
 
 

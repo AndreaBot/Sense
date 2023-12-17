@@ -64,5 +64,11 @@ struct AppLogic {
         eveningButton.isEnabled = hour > 12 ? true : false
     }
     
-    
+    static func resetVC(_ vc: UIViewController) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        let navigationController = UINavigationController(rootViewController: targetViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        vc.present(navigationController, animated: true, completion: nil)
+    }
 }

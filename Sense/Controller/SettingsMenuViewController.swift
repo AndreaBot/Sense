@@ -9,12 +9,14 @@ import UIKit
 
 class SettingsMenuViewController: UIViewController {
     
-
+    
     @IBOutlet weak var amTimePicker: UIDatePicker!
     @IBOutlet weak var pmTimePicker: UIDatePicker!
     @IBOutlet weak var setReminderButton: UIButton!
     @IBOutlet weak var amStackView: UIStackView!
     @IBOutlet weak var pmStackView: UIStackView!
+    @IBOutlet weak var deleteAccountButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var selectedAmTime = Date() {
         didSet {
@@ -39,10 +41,18 @@ class SettingsMenuViewController: UIViewController {
         setupUI()
     }
     
+    @IBAction func closeButton(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func deleteAccountPressed(_ sender: UIButton) {
+        present(Alerts.confirmationAlert(self), animated: true)
+    }
+    
     @IBAction func logoutPressed(_ sender: UIButton) {
         FirebaseMethods.Authentication.logout { result in
             switch result {
-            case .success(): self.resetVC()
+            case .success(): AppLogic.resetVC(self)
             case .failure(let error): self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
             }
         }
@@ -76,6 +86,8 @@ class SettingsMenuViewController: UIViewController {
     }
     
     func setupUI() {
+        customiseButton(deleteAccountButton)
+        customiseButton(logoutButton)
         setReminderButton.isEnabled = false
         amStackView.backgroundColor = UIColor(named: "CustomOrangeColor")
         amStackView.layer.cornerRadius = amStackView.frame.width/30
@@ -83,18 +95,16 @@ class SettingsMenuViewController: UIViewController {
         pmStackView.layer.cornerRadius = pmStackView.frame.width/30
         if let am = Notifications.setDefaultAmTime(),
            let pm = Notifications.setDefaultPmTime() {
-                selectedAmTime = am
-                selectedPmTime = pm
-            }
+            selectedAmTime = am
+            selectedPmTime = pm
+        }
         Notifications.setAvailableTimes(amTimePicker, 0, 11, 59)
         Notifications.setAvailableTimes(pmTimePicker, 12, 23, 59)
     }
-
-    func resetVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let targetViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-        let navigationController = UINavigationController(rootViewController: targetViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
+    
+    func customiseButton(_ button: UIButton) {
+        button.layer.cornerRadius = deleteAccountButton.frame.height/4
+        button.layer.borderColor = UIColor.label.cgColor
+        button.layer.borderWidth = deleteAccountButton.frame.height/12
     }
 }

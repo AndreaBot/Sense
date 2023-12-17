@@ -37,4 +37,21 @@ struct Alerts {
         }))
         return alert
     }
+    
+    static func confirmationAlert(_ vc: UIViewController) -> UIAlertController {
+        let alert = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account? This cannot be undone.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+            FirebaseMethods.Authentication.deleteAccount { result in
+                switch result {
+                case .failure(let error):
+                    print(error);
+                case .success(()): 
+                    AppLogic.resetVC(vc)
+                }
+            }
+        }))
+        return alert
+    }
 }
+
