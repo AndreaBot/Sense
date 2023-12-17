@@ -27,6 +27,7 @@ class DiaryEntryViewController: UIViewController {
     @IBOutlet weak var txtField6: UITextField!
     @IBOutlet weak var diaryEntry: UITextView!
     @IBOutlet var containerViews: [UIView]!
+    @IBOutlet weak var expandButton: UIButton!
     
     var mood = ""
     var currentDate = ""
@@ -101,6 +102,10 @@ class DiaryEntryViewController: UIViewController {
         }
     }
     
+    @IBAction func expandDiaryEntry(_ sender: UIButton) {
+        performSegue(withIdentifier: "showExpandedView", sender: self)
+    }
+    
     func setupView() {
         if let passedContent = entryContent {
             txtField1.text = passedContent.txtField1
@@ -118,11 +123,14 @@ class DiaryEntryViewController: UIViewController {
             secondLabel.text = AppLogic.convertSecondLabelText((passedContent.timeOfDay)!)
             
             disableUI()
+            expandButton.isHidden = false
+            
             
         } else {
             title = screenTitle
             firstLabel.text = firstLabelText
             secondLabel.text = secondLabelText
+            expandButton.isHidden = true
         }
         txtField1.delegate = self
         txtField2.delegate = self
@@ -135,6 +143,7 @@ class DiaryEntryViewController: UIViewController {
             container.layer.cornerRadius = container.frame.width/35
         }
         diaryEntry.layer.cornerRadius = diaryEntry.frame.width/60
+        
     }
     
     func highlightSelectedMood(_ mood: String) {
@@ -166,14 +175,31 @@ class DiaryEntryViewController: UIViewController {
     }
     
     func disableUI() {
-        for view in containerViews {
-            view.isUserInteractionEnabled = false
-        }
+        txtField1.isUserInteractionEnabled = false
+        txtField2.isUserInteractionEnabled = false
+        txtField3.isUserInteractionEnabled = false
+        txtField4.isUserInteractionEnabled = false
+        txtField5.isUserInteractionEnabled = false
+        txtField6.isUserInteractionEnabled = false
+        diaryEntry.isUserInteractionEnabled = false
     }
     
     func enableUI() {
-        for view in containerViews {
-            view.isUserInteractionEnabled = true
+        txtField1.isUserInteractionEnabled = true
+        txtField2.isUserInteractionEnabled = true
+        txtField3.isUserInteractionEnabled = true
+        txtField4.isUserInteractionEnabled = true
+        txtField5.isUserInteractionEnabled = true
+        txtField6.isUserInteractionEnabled = true
+        diaryEntry.isUserInteractionEnabled = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showExpandedView" {
+            let destinationVC = segue.destination as? ExpandedViewController
+            destinationVC?.delegate = self
+            destinationVC?.text = diaryEntry.text
+            destinationVC?.backgroundColor = containerViewsBackgroundColor
         }
     }
 }
@@ -183,6 +209,14 @@ extension DiaryEntryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
+    }
+}
+
+extension DiaryEntryViewController: ExpandedViewControllerDelegate {
+    func passDiaryText(_ text: String) {
+        diaryEntry.text = text
+        enableUI()
+        saveButton.isEnabled = true
     }
 }
 

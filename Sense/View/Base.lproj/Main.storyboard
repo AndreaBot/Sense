@@ -673,13 +673,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mn6-l6-OrG">
-                                <rect key="frame" x="0.0" y="96" width="393" height="756"/>
+                                <rect key="frame" x="0.0" y="44" width="433" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XFr-OS-zx6" userLabel="General Stack View">
-                                        <rect key="frame" x="0.0" y="20" width="393" height="1000"/>
+                                        <rect key="frame" x="0.0" y="20" width="433" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-lf-k5K" userLabel="Mood Container View">
-                                                <rect key="frame" x="10" y="0.0" width="373" height="90"/>
+                                                <rect key="frame" x="10" y="0.0" width="413" height="90"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wWa-J6-Lsv" userLabel="Mood Tracker Stack View">
                                                         <rect key="frame" x="10" y="10" width="393" height="70"/>
@@ -738,7 +738,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7k-QE-Ofm" userLabel="Bullet Points Container View">
-                                                <rect key="frame" x="10" y="120" width="373" height="373.5"/>
+                                                <rect key="frame" x="10" y="120" width="413" height="373.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-5Y-Zdh" userLabel="Bullet Points Stack View">
                                                         <rect key="frame" x="10" y="10" width="393" height="353.5"/>
@@ -829,19 +829,35 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qD2-sK-Dzi" userLabel="Diary Entry Container View">
-                                                <rect key="frame" x="10" y="523.5" width="373" height="476.5"/>
+                                                <rect key="frame" x="10" y="523.5" width="413" height="476.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JtF-we-GB1" userLabel="Diary Entry Stack View">
-                                                        <rect key="frame" x="10" y="10" width="353" height="456.5"/>
+                                                        <rect key="frame" x="10" y="10" width="393" height="456.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diary Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Ai-ibS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-yb-Gdv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diary Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Ai-ibS">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-lR-BEb">
+                                                                        <rect key="frame" x="196.5" y="0.0" width="196.5" height="20.5"/>
+                                                                        <color key="tintColor" name="CustomPinkColor"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.down.left.and.arrow.up.right.circle" catalog="system">
+                                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="semibold"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="expandDiaryEntry:" destination="fMU-C6-Ddy" eventType="touchUpInside" id="spD-Fn-sxn"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-JT-FdK">
-                                                                <rect key="frame" x="0.0" y="30.5" width="353" height="426"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="393" height="426"/>
                                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -910,6 +926,7 @@
                     <connections>
                         <outlet property="diaryEntry" destination="vte-JT-FdK" id="R6g-ex-nwe"/>
                         <outlet property="editButton" destination="S9h-nU-sNf" id="eVr-C2-eGR"/>
+                        <outlet property="expandButton" destination="oaY-lR-BEb" id="kef-FD-BUW"/>
                         <outlet property="firstLabel" destination="dnU-cq-eEV" id="fEh-vO-O3S"/>
                         <outlet property="happyMoodButton" destination="0Lv-xf-aVd" id="dFd-R6-tOI"/>
                         <outlet property="neutralMoodButton" destination="Z5E-Nf-9Yr" id="tzY-DC-aW5"/>
@@ -925,11 +942,90 @@
                         <outletCollection property="containerViews" destination="fdl-lf-k5K" collectionClass="NSMutableArray" id="RR2-w1-mKA"/>
                         <outletCollection property="containerViews" destination="B7k-QE-Ofm" collectionClass="NSMutableArray" id="CdC-A3-Hyy"/>
                         <outletCollection property="containerViews" destination="qD2-sK-Dzi" collectionClass="NSMutableArray" id="WTk-c4-a14"/>
+                        <segue destination="6fX-N6-L03" kind="presentation" identifier="showExpandedView" id="dh8-Wp-xrs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWc-th-3hX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4078" y="2422"/>
+        </scene>
+        <!--Expanded View Controller-->
+        <scene sceneID="52d-Gk-aoa">
+            <objects>
+                <viewController id="6fX-N6-L03" customClass="ExpandedViewController" customModule="Sense" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ixc-Ig-nCd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rLn-zM-mTW">
+                                <rect key="frame" x="10" y="20" width="355" height="607"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uvX-Hr-6aC" userLabel="Top Buttons Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="34.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucP-Fq-36k">
+                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="34.5"/>
+                                                <color key="tintColor" name="CustomPinkColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Edit">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="editPressed:" destination="6fX-N6-L03" eventType="touchUpInside" id="bq2-bi-MUP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-pE-TFg">
+                                                <rect key="frame" x="192.5" y="0.0" width="162.5" height="34.5"/>
+                                                <color key="tintColor" name="CustomPinkColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="donePressed:" destination="6fX-N6-L03" eventType="touchUpInside" id="zjT-08-HWA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLT-U7-Ad8" userLabel="Diary Entry Container View">
+                                        <rect key="frame" x="0.0" y="54.5" width="355" height="552.5"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgj-m0-Ctf">
+                                                <rect key="frame" x="10" y="10" width="335" height="532.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Lgj-m0-Ctf" secondAttribute="bottom" constant="10" id="KhQ-p6-urr"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lgj-m0-Ctf" secondAttribute="trailing" constant="10" id="VjD-b0-ftH"/>
+                                            <constraint firstItem="Lgj-m0-Ctf" firstAttribute="top" secondItem="eLT-U7-Ad8" secondAttribute="top" constant="10" id="hsj-Ax-FIf"/>
+                                            <constraint firstItem="Lgj-m0-Ctf" firstAttribute="leading" secondItem="eLT-U7-Ad8" secondAttribute="leading" constant="10" id="l0z-9z-fUu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IA4-DN-jlc"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rLn-zM-mTW" secondAttribute="trailing" constant="10" id="4ya-WQ-01E"/>
+                            <constraint firstItem="rLn-zM-mTW" firstAttribute="leading" secondItem="IA4-DN-jlc" secondAttribute="leading" constant="10" id="SXx-vo-ifT"/>
+                            <constraint firstAttribute="bottom" secondItem="rLn-zM-mTW" secondAttribute="bottom" constant="20" id="ai4-nH-uLQ"/>
+                            <constraint firstItem="rLn-zM-mTW" firstAttribute="top" secondItem="IA4-DN-jlc" secondAttribute="top" constant="20" id="fb0-Xq-9M7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="eLT-U7-Ad8" id="Qwy-b0-VCJ"/>
+                        <outlet property="diaryEntry" destination="Lgj-m0-Ctf" id="IOB-pv-hzs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zey-q0-GMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4855" y="2337"/>
         </scene>
         <!--Calendar Content View Controller-->
         <scene sceneID="9Ay-st-VJe">
@@ -1083,6 +1179,7 @@
         <image name="AmGradient" width="375" height="375"/>
         <image name="PmGradient" width="375" height="375"/>
         <image name="SenseMain" width="1250" height="1250"/>
+        <image name="arrow.down.left.and.arrow.up.right.circle" catalog="system" width="128" height="123"/>
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
