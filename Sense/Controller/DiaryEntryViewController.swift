@@ -49,6 +49,8 @@ class DiaryEntryViewController: UIViewController {
         view.addGestureRecognizer(exitKeyboard)
     }
     
+
+    
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
@@ -67,11 +69,9 @@ class DiaryEntryViewController: UIViewController {
         if sender.title == "Edit" {
             sender.title = "Cancel"
             enableUI()
-            saveButton.isEnabled = true
         } else {
             sender.title = "Edit"
             disableUI()
-            saveButton.isEnabled = false
         }
     }
     
@@ -187,6 +187,7 @@ class DiaryEntryViewController: UIViewController {
         txtField5.isUserInteractionEnabled = false
         txtField6.isUserInteractionEnabled = false
         diaryEntry.isUserInteractionEnabled = false
+        saveButton.isEnabled = false
         for view in containerViews {
             view.backgroundColor = containerViewsBackgroundColor.withAlphaComponent(0.7)
         }
@@ -203,10 +204,12 @@ class DiaryEntryViewController: UIViewController {
         txtField5.isUserInteractionEnabled = true
         txtField6.isUserInteractionEnabled = true
         diaryEntry.isUserInteractionEnabled = true
+        saveButton.isEnabled = true
         for view in containerViews {
             view.backgroundColor = containerViewsBackgroundColor
         }
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showExpandedView" {

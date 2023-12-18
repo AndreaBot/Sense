@@ -43,7 +43,7 @@ class LaunchScreenViewController: UIViewController {
         super.viewDidLoad()
         QuoteGenerator.delegate = self
         quoteContainerView.layer.cornerRadius = quoteContainerView.frame.height/7
-        quoteContainerView.backgroundColor = UIColor(white: 0.6, alpha: 0.2)
+        quoteContainerView.backgroundColor = .systemGray3.withAlphaComponent(0.3)
         quoteContainerView.alpha = 0
         continueButton.alpha = 0
         if let showAgainBool = defaults.object(forKey: "dontShowAgain") as? Bool {

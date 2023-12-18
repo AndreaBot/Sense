@@ -11,6 +11,7 @@ import FirebaseAuth
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarContainerView: UIView!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     var formattedDate = ""
     var entryContent: DiaryEntryModel?
@@ -22,6 +23,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Calendar"
+        settingsButton.image = UIImage(systemName: "ellipsis.circle")?.withConfiguration(UIImage.SymbolConfiguration(weight: .semibold))
         createCalendar()
     }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaA-NO-uFR">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -34,7 +34,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J7i-fI-bSE" userLabel="Quote Stack View">
                                                         <rect key="frame" x="20" y="20" width="41.5" height="50"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqu-zQ-4Nf">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqu-zQ-4Nf">
                                                                 <rect key="frame" x="1" y="0.0" width="39" height="19.5"/>
                                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                                 <nil key="textColor"/>
@@ -455,6 +455,7 @@
                                                         </connections>
                                                     </datePicker>
                                                 </subviews>
+                                                <color key="backgroundColor" name="CustomOrangeColor"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-Uo-l50" userLabel="PM Stack View">
                                                 <rect key="frame" x="0.0" y="238" width="335" height="217.5"/>
@@ -472,6 +473,7 @@
                                                         </connections>
                                                     </datePicker>
                                                 </subviews>
+                                                <color key="backgroundColor" name="CustomBlueColor"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -484,6 +486,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Set Reminders">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="setReminderPressed:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="xb7-bu-nCu"/>
@@ -496,6 +499,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Open Notifications Settings">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="openAppSettings:" destination="p4v-FX-AZ0" eventType="touchUpInside" id="cBC-y2-BId"/>
@@ -615,6 +619,7 @@
                         <outlet property="buttonsContainerView" destination="tdR-n3-hyw" id="NFh-pp-X6e"/>
                         <outlet property="dailyIntentionsButton" destination="Bsx-Xb-BwU" id="lsI-OU-VBt"/>
                         <outlet property="eveningReflectionsButton" destination="Hcn-xW-Lzv" id="cC4-vO-aLZ"/>
+                        <outlet property="settingsButton" destination="enA-lh-azv" id="jfi-fS-tZA"/>
                         <segue destination="fMU-C6-Ddy" kind="show" identifier="makeEntry" id="NaV-o0-DOZ"/>
                         <segue destination="p4v-FX-AZ0" kind="presentation" identifier="setNotificationsMenu" id="1iV-mt-Wpu"/>
                     </connections>
@@ -656,6 +661,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarContainerView" destination="2rl-dz-npF" id="34P-iX-d93"/>
+                        <outlet property="settingsButton" destination="Tvt-sk-Cv9" id="jKr-Vj-6Ir"/>
                         <segue destination="MVI-JV-s4X" kind="presentation" identifier="showCalendarContent" id="Qc9-Ku-MOm"/>
                         <segue destination="fMU-C6-Ddy" kind="show" identifier="showEntryContent" id="aQP-XD-r1P"/>
                     </connections>
@@ -1169,7 +1175,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h79-2y-j3O"/>
+        <segue reference="Wug-Xm-6Al"/>
         <segue reference="aQP-XD-r1P"/>
         <segue reference="BEt-k4-5ke"/>
     </inferredMetricsTieBreakers>
@@ -1182,6 +1188,12 @@
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="CustomBlueColor">
+            <color red="0.4779999852180481" green="0.48199999332427979" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomOrangeColor">
+            <color red="0.94499999284744263" green="0.67500001192092896" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="CustomPinkColor">
             <color red="0.90600001811981201" green="0.55299997329711914" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

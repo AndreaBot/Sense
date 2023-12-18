@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var buttonsContainerView: UIView!
     @IBOutlet weak var dailyIntentionsButton: UIButton!
     @IBOutlet weak var eveningReflectionsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     var screenTitle = ""
     var timeOfDay = ""
@@ -27,18 +28,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sense"
-        
         if Notifications.dontShowAgain == false {
             Notifications.askForPermission(self)
         }
-        
-        buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.width/30
-        buttonsContainerView.clipsToBounds = true
-        dailyIntentionsButton.titleLabel?.numberOfLines = 1
-        eveningReflectionsButton.titleLabel?.numberOfLines = 1
-        dailyIntentionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        eveningReflectionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +80,17 @@ class MainViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setupUI() {
+        title = "Sense"
+        buttonsContainerView.layer.cornerRadius = buttonsContainerView.frame.width/30
+        buttonsContainerView.clipsToBounds = true
+        dailyIntentionsButton.titleLabel?.numberOfLines = 1
+        eveningReflectionsButton.titleLabel?.numberOfLines = 1
+        dailyIntentionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        eveningReflectionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        settingsButton.image = UIImage(systemName: "ellipsis.circle")?.withConfiguration(UIImage.SymbolConfiguration(weight: .semibold))
     }
     
     

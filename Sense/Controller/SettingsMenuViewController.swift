@@ -103,8 +103,9 @@ class SettingsMenuViewController: UIViewController {
     }
     
     func customiseButton(_ button: UIButton) {
-        button.layer.cornerRadius = deleteAccountButton.frame.height/4
+        button.tintColor = UIColor.systemGray6
+        button.layer.cornerRadius = button.frame.height/4
         button.layer.borderColor = UIColor.label.cgColor
-        button.layer.borderWidth = deleteAccountButton.frame.height/12
+        button.layer.borderWidth = button.frame.height/12
     }
 }
