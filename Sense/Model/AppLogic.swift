@@ -18,28 +18,20 @@ struct AppLogic {
         return day+month+year
     }
     
-    static func convertTitleText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Daily Intentions"
+    static func convertAmPm(_ timeOfDay: String) -> (title: String, firstHeader: String, secondHeader: String) {
+        var title = ""
+        var firstHeader = ""
+        var secondHeader = ""
+        if timeOfDay == "am" {
+            title = "Daily Intentions"
+            firstHeader = "Today's positive intentions"
+            secondHeader = "Top 3 To-Do's"
         } else {
-            return "Evening Reflections"
+            title = "Evening Reflections"
+            firstHeader = "Three things I did well today"
+            secondHeader = "Three thing I could improve on"
         }
-    }
-    
-    static func convertFirstLabelText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Today's positive intentions"
-        } else {
-            return "Three things I did well today"
-        }
-    }
-    
-    static func convertSecondLabelText(_ timeofDay: String) -> String {
-        if timeofDay == "am" {
-            return "Top 3 To-Do's"
-        } else {
-            return "Three thing I could improve on"
-        }
+        return (title, firstHeader, secondHeader)
     }
     
     static func convertButtonTitleToDocName(_ buttonTitle: String) -> String {

@@ -22,7 +22,7 @@ class LaunchScreenViewController: UIViewController {
     var quoteModel: QuoteModel? {
         didSet {
             DispatchQueue.main.async { [self] in
-                quoteLabel.text = "''\(quoteModel!.quote)''"
+                quoteLabel.text = "\"\(quoteModel!.quote)\""
                 authorLabel.text = quoteModel!.author
                 UIView.transition(with: quoteContainerView, duration: 1, options: .transitionCrossDissolve, animations: {
                     self.quoteContainerView.alpha = 1
