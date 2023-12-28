@@ -41,6 +41,14 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupFutureNotifications()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            QuoteGenerator.performRequest()
+        }
+    }
+    
+    func setupUI() {
         QuoteGenerator.delegate = self
         quoteContainerView.layer.cornerRadius = quoteContainerView.frame.height/7
         quoteContainerView.backgroundColor = .systemGray3.withAlphaComponent(0.3)
@@ -52,10 +60,15 @@ class LaunchScreenViewController: UIViewController {
         if let notificationsSetBool = defaults.object(forKey: "notificationsAlreadySet") as? Bool {
             Notifications.notificationsAlreadySet = notificationsSetBool
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            QuoteGenerator.performRequest()
+    }
+    
+    func setupFutureNotifications() {
+        if let morningTime = defaults.object(forKey: "amTime"),
+           let eveningTime = defaults.object(forKey: "pmTime") {
+            Notifications.center.removeAllDeliveredNotifications()
+            Notifications.setAmReminderTime(morningTime as! Date)
+            Notifications.setPmReminderTime(eveningTime as! Date)
         }
-        
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {

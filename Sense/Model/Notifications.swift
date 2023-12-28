@@ -16,6 +16,16 @@ struct Notifications {
     static var amTime = Date()
     static var pmTime = Date()
     static let center = UNUserNotificationCenter.current()
+    static let amMessages = ["It's time for your morning session!",
+                             "Rise, shine and open Sense!",
+                             "Start the day right with Sense!",
+                             "New day, get planning on Sense!",
+                             "Don't be late, it's Sense-time!"]
+    static var pmMessages = ["It's time for your evening session!",
+                              "What a day, get it to make sense on... Sense!",
+                              "How has today treated you?",
+                              "Every day is a school day, what has life taught you today?",
+                              "The key to change is daily practice, finish the day on Sense!"]
     
     static func askForPermission(_ vc: UIViewController) {
         center.requestAuthorization(options: .alert) { accepted, error in
@@ -34,7 +44,7 @@ struct Notifications {
     static func setAmReminderTime(_ time: Date) {
         let content = UNMutableNotificationContent()
         content.title = "Sense"
-        content.body = "It's time for your morning session!"
+        content.body = amMessages.randomElement()!
         let components = Calendar.current.dateComponents([.hour, .minute], from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuidString = UUID().uuidString
@@ -43,10 +53,9 @@ struct Notifications {
     }
     
     static func setPmReminderTime(_ time: Date) {
-        center.removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
         content.title = "Sense"
-        content.body = "It's time for your evening session!"
+        content.body = pmMessages.randomElement()!
         let components = Calendar.current.dateComponents([.hour, .minute], from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuidString = UUID().uuidString
