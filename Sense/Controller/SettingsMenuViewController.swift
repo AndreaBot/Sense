@@ -73,7 +73,7 @@ class SettingsMenuViewController: UIViewController {
     }
     
     @IBAction func setReminderPressed(_ sender: UIButton) {
-        Notifications.center.removeAllDeliveredNotifications()
+        Notifications.center.removeAllPendingNotificationRequests()
         Notifications.setAmReminderTime(selectedAmTime)
         Notifications.setPmReminderTime(selectedPmTime)
         Notifications.notificationsAlreadySet = true
@@ -99,8 +99,8 @@ class SettingsMenuViewController: UIViewController {
             selectedAmTime = am
             selectedPmTime = pm
         }
-        Notifications.setAvailableTimes(amTimePicker, 0, 11, 59)
-        Notifications.setAvailableTimes(pmTimePicker, 12, 23, 59)
+       Notifications.setAvailableTimes(amTimePicker, 0, 11, 59)
+       Notifications.setAvailableTimes(pmTimePicker, 12, 23, 59)
     }
     
     func customiseButton(_ button: UIButton) {

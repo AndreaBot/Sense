@@ -65,7 +65,7 @@ class LaunchScreenViewController: UIViewController {
     func setupFutureNotifications() {
         if let morningTime = defaults.object(forKey: "amTime"),
            let eveningTime = defaults.object(forKey: "pmTime") {
-            Notifications.center.removeAllDeliveredNotifications()
+            Notifications.center.removeAllPendingNotificationRequests()
             Notifications.setAmReminderTime(morningTime as! Date)
             Notifications.setPmReminderTime(eveningTime as! Date)
         }

@@ -118,10 +118,6 @@ class DiaryEntryViewController: UIViewController {
             
             highlightSelectedMood(passedContent.mood!)
             
-//            title = AppLogic.convertTitleText(passedContent.timeOfDay!)
-//            firstLabel.text = AppLogic.convertFirstLabelText((passedContent.timeOfDay)!)
-//            secondLabel.text = AppLogic.convertSecondLabelText((passedContent.timeOfDay)!)
-            
             title = AppLogic.convertAmPm(passedContent.timeOfDay!).title
             firstLabel.text = AppLogic.convertAmPm((passedContent.timeOfDay)!).firstHeader
             secondLabel.text = AppLogic.convertAmPm((passedContent.timeOfDay)!).secondHeader
