@@ -86,17 +86,9 @@ struct Notifications {
         datePicker.maximumDate = maxDate
     }
     
-    static func setDefaultAmTime() -> Date? {
-        if let amTime = defaults.object(forKey: "amTime") {
-            return amTime as? Date
-        } else {
-            return nil
-        }
-    }
-    
-    static func setDefaultPmTime() -> Date? {
-        if let pmTime = defaults.object(forKey: "pmTime") {
-            return pmTime as? Date
+    static func setDefaultTime(userDefaultKey: String) -> Date? {
+        if let time = defaults.object(forKey: userDefaultKey) {
+            return time as? Date
         } else {
             return nil
         }

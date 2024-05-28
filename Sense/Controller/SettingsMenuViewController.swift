@@ -94,8 +94,8 @@ class SettingsMenuViewController: UIViewController {
         amStackView.layer.cornerRadius = amStackView.frame.width/30
         pmStackView.backgroundColor = UIColor(named: "CustomBlueColor")
         pmStackView.layer.cornerRadius = pmStackView.frame.width/30
-        if let am = Notifications.setDefaultAmTime(),
-           let pm = Notifications.setDefaultPmTime() {
+        if let am = Notifications.setDefaultTime(userDefaultKey: "amTime"),
+           let pm = Notifications.setDefaultTime(userDefaultKey: "pmTime") {
             selectedAmTime = am
             selectedPmTime = pm
         }

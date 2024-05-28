@@ -43,6 +43,7 @@ class LaunchScreenViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupFutureNotifications()
+        setupNotificationsSettings()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             QuoteGenerator.performRequest()
         }
@@ -54,6 +55,9 @@ class LaunchScreenViewController: UIViewController {
         quoteContainerView.backgroundColor = .systemGray3.withAlphaComponent(0.3)
         quoteContainerView.alpha = 0
         continueButton.alpha = 0
+    }
+    
+    func setupNotificationsSettings() {
         if let showAgainBool = defaults.object(forKey: "dontShowAgain") as? Bool {
             Notifications.dontShowAgain = showAgainBool
         }
