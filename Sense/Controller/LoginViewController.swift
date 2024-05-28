@@ -31,20 +31,29 @@ class LoginViewController: UIViewController {
         navigationItem.hidesBackButton = false
         setShowPasswordButton()
         
-        let customRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
-        customRightView.addSubview(showPasswordButton)
-        
-        passwordTextField.rightView = customRightView
+        passwordTextField.rightView = setPasswordReveal(for: passwordTextField, button: showPasswordButton)
         passwordTextField.rightViewMode = .always
    
         loginButton.layer.cornerRadius = loginButton.frame.height/7
     }
     
+    func setPasswordReveal(for txtField: UITextField, button: UIButton) -> UIView {
+        let width = txtField.frame.width/8
+        let height = txtField.frame.height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        button.frame = frame
+        button.setImage(eyeSlashImage, for: .normal)
+        button.tintColor = .label
+        button.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
+        let showPasswordContainer = UIView(frame: frame)
+        showPasswordContainer.addSubview(button)
+        return showPasswordContainer
+    }
+    
     
     @IBAction func loginUser(_ sender: UIButton) {
-        
         if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
-            
             FirebaseMethods.Authentication.login(userEmail, userPassword) { result in
                 switch result {
                 case .success:
