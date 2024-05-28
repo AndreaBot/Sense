@@ -213,10 +213,11 @@ class DiaryEntryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showExpandedView" {
-            let destinationVC = segue.destination as? ExpandedViewController
-            destinationVC?.delegate = self
-            destinationVC?.text = diaryEntry.text
-            destinationVC?.backgroundColor = containerViewsBackgroundColor
+            if let destinationVC = segue.destination as? ExpandedViewController {
+                destinationVC.delegate = self
+                destinationVC.text = diaryEntry.text
+                destinationVC.backgroundColor = containerViewsBackgroundColor
+            }
         }
     }
 }

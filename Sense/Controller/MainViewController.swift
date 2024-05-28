@@ -96,13 +96,14 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "makeEntry" {
-            let destinationVC = segue.destination as? DiaryEntryViewController
-            destinationVC?.screenTitle = screenTitle
-            destinationVC?.timeOfDay = timeOfDay
-            destinationVC?.firstLabelText = firstLabelText
-            destinationVC?.secondLabelText = secondLabelText
-            destinationVC?.containerViewsBackgroundColor = containerViewsBackgroundColor
-            destinationVC?.editButton.isHidden = true
+            if let destinationVC = segue.destination as? DiaryEntryViewController {
+                destinationVC.screenTitle = screenTitle
+                destinationVC.timeOfDay = timeOfDay
+                destinationVC.firstLabelText = firstLabelText
+                destinationVC.secondLabelText = secondLabelText
+                destinationVC.containerViewsBackgroundColor = containerViewsBackgroundColor
+                destinationVC.editButton.isHidden = true
+            }
         }
     }
 }
