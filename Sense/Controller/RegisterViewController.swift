@@ -29,8 +29,7 @@ class RegisterViewController: UIViewController {
     
     func setupUI() {
         title = "Register"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesBackButton = false
         
         registerButton.layer.cornerRadius = registerButton.frame.height/7

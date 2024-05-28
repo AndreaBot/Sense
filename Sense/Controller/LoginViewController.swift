@@ -27,8 +27,7 @@ class LoginViewController: UIViewController {
     
     func setupUI() {
         title = "Login"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesBackButton = false
         setShowPasswordButton()
         
