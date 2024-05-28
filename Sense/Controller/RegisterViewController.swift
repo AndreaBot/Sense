@@ -33,31 +33,29 @@ class RegisterViewController: UIViewController {
         navigationItem.hidesBackButton = false
         
         registerButton.layer.cornerRadius = registerButton.frame.height/7
-        setShowPasswordButton(showPasswordButton)
-        setShowPasswordButton(showRepeatPasswordButton)
         
-        let firstCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
-        firstCustomRightView.addSubview(showPasswordButton)
-        
-        let secondCustomRightView = UIView(frame: CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height))
-        secondCustomRightView.addSubview(showRepeatPasswordButton)
-        
-        passwordTextField.rightView = firstCustomRightView
+        passwordTextField.rightView = setPasswordReveal(for: passwordTextField, button: showPasswordButton)
         passwordTextField.rightViewMode = .always
         
-        repeatPasswordTextField.rightView = secondCustomRightView
+        repeatPasswordTextField.rightView = setPasswordReveal(for: repeatPasswordTextField, button: showRepeatPasswordButton)
         repeatPasswordTextField.rightViewMode = .always
     }
     
-    func setShowPasswordButton(_ button: UIButton) {
-        button.frame = CGRect(x: 0, y: 0, width: passwordTextField.frame.width/8, height: passwordTextField.frame.height)
+    func setPasswordReveal(for txtField: UITextField, button: UIButton) -> UIView {
+        let width = txtField.frame.width/8
+        let height = txtField.frame.height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        button.frame = frame
         button.setImage(eyeSlashImage, for: .normal)
-        button.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
         button.tintColor = .label
+        button.addTarget(self, action: #selector(showPasswords), for: .touchUpInside)
+        let showPasswordContainer = UIView(frame: frame)
+        showPasswordContainer.addSubview(button)
+        return showPasswordContainer
     }
     
     @objc func showPasswords() {
-        
         if passwordTextField.isSecureTextEntry == true {
             passwordTextField.isSecureTextEntry = false
             repeatPasswordTextField.isSecureTextEntry = false
