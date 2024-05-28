@@ -59,8 +59,8 @@ class SettingsMenuViewController: UIViewController {
     }
     
     @IBAction func openAppSettings(_ sender: UIButton) {
-        if let aString = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(aString, options: [:])
+        if let appSettingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(appSettingsURL)
         }
     }
     
