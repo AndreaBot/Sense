@@ -73,20 +73,20 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerUser(_ sender: UIButton) {
+        guard passwordTextField.text == repeatPasswordTextField.text else {
+            present(Alerts.errorAlert("The passwords do not match. Please check the spelling"), animated: true)
+            return
+        }
         
-        if passwordTextField.text == repeatPasswordTextField.text && passwordTextField.text != nil && repeatPasswordTextField.text != nil {
-            if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
-                FirebaseMethods.Authentication.register(userEmail, userPassword) { result in
-                    switch result {
-                    case .success:
-                        self.performSegue(withIdentifier: "register", sender: self)
-                    case .failure(let error):
-                        self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
-                    }
+        if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
+            FirebaseMethods.Authentication.register(userEmail, userPassword) { result in
+                switch result {
+                case .success:
+                    self.performSegue(withIdentifier: "register", sender: self)
+                case .failure(let error):
+                    self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
                 }
             }
-        } else {
-            present(Alerts.errorAlert("A fields hasn't been filled in or the passwords don't match"), animated: true)
         }
     }
 }
