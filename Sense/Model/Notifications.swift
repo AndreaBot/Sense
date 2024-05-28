@@ -41,21 +41,10 @@ struct Notifications {
         }
     }
     
-    static func setAmReminderTime(_ time: Date) {
+    static func setReminder(_ time: Date, messageArray: [String]) {
         let content = UNMutableNotificationContent()
         content.title = "Sense"
-        content.body = amMessages.randomElement()!
-        let components = Calendar.current.dateComponents([.hour, .minute], from: time)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        center.add(request)
-    }
-    
-    static func setPmReminderTime(_ time: Date) {
-        let content = UNMutableNotificationContent()
-        content.title = "Sense"
-        content.body = pmMessages.randomElement()!
+        content.body = messageArray.randomElement()!
         let components = Calendar.current.dateComponents([.hour, .minute], from: time)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuidString = UUID().uuidString
@@ -63,7 +52,6 @@ struct Notifications {
         center.add(request)
     }
 
-    
     static func updateShowAgainUserDefaults() {
         let defaults = UserDefaults.standard
         defaults.set(Notifications.dontShowAgain, forKey: "dontShowAgain")

@@ -74,8 +74,10 @@ class SettingsMenuViewController: UIViewController {
     
     @IBAction func setReminderPressed(_ sender: UIButton) {
         Notifications.center.removeAllPendingNotificationRequests()
-        Notifications.setAmReminderTime(selectedAmTime)
-        Notifications.setPmReminderTime(selectedPmTime)
+    
+        Notifications.setReminder(selectedAmTime, messageArray: Notifications.amMessages)
+        Notifications.setReminder(selectedPmTime, messageArray: Notifications.pmMessages)
+        
         Notifications.notificationsAlreadySet = true
         Notifications.updateAlreadySetUserDefaults()
         Notifications.updateDefaultTimes()
