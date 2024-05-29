@@ -68,7 +68,7 @@ struct Alerts {
             FirebaseMethods.Authentication.sendPasswordResetEmail(to: vc.emailAddress) { result in
                 switch result {
                 case .success():
-                    vc.present(Alerts.confirmationMessage("Email succcessfully sent!"), animated: true)
+                    vc.present(Alerts.confirmationMessage("Email successfully sent!"), animated: true)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         vc.dismiss(animated: true)
                     }

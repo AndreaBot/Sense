@@ -15,7 +15,6 @@ protocol CalendarContentViewDelegate {
 
 class CalendarContentViewController: UIViewController {
     
-    
     @IBOutlet weak var dailyIntentionsButton: UIButton!
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     

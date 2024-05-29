@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseFirestore
 import FirebaseAuth
 
 class DiaryEntryViewController: UIViewController {
@@ -99,14 +100,15 @@ class DiaryEntryViewController: UIViewController {
             FirebaseMethods.Database.writeToDatabase(currentDate, timeOfDay, mood, userId, text1, text2, text3, text4, text5, text6, diaryText) { result in
                 switch result {
                 case .success():
-                    print("Document successfully written!")
                     self.present(Alerts.confirmationMessage("Diary entry saved!"), animated: true)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         self.dismiss(animated: true)
                         self.navigationController?.popViewController(animated: true)
                     }
-                case .failure(let error):
-                    print("Error writing document: \(error)")
+                case .failure(let error as NSError):
+                    if let code = FirestoreErrorCode.Code(rawValue: error.code) {
+                        self.present(Alerts.errorAlert(FirestoreErrors.presentError(using: code)), animated: true)
+                    }
                 }
             }
         }

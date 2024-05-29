@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class CalendarViewController: UIViewController {
     
@@ -106,8 +107,10 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
                             }
                         }
     
-                    case .failure(let error):
-                        print(error)
+                    case .failure(let error as NSError):
+                        if let code = FirestoreErrorCode.Code(rawValue: error.code) {
+                            self.present(Alerts.errorAlert(FirestoreErrors.presentError(using: code)), animated: true)
+                        }
                     }
                 }
     
