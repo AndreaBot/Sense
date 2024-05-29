@@ -52,23 +52,24 @@ class CalendarViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCalendarContent" {
-            let destinationVC = segue.destination as? CalendarContentViewController
-            destinationVC?.delegate = self
-            destinationVC?.currentDate = formattedDate
-            
-            if let sheet = destinationVC?.sheetPresentationController {
-                sheet.detents = [.custom(resolver: { context in
-                    return context.maximumDetentValue * 0.2
-                })]
-                sheet.preferredCornerRadius = 15
+            if let destinationVC = segue.destination as? CalendarContentViewController {
+                destinationVC.delegate = self
+                destinationVC.currentDate = formattedDate
+                
+                if let sheet = destinationVC.sheetPresentationController {
+                    sheet.detents = [.custom(resolver: { context in
+                        return context.maximumDetentValue * 0.2
+                    })]
+                    sheet.preferredCornerRadius = 15
+                }
             }
-            
         } else if segue.identifier == "showEntryContent" {
-            let destinationVC = segue.destination as? DiaryEntryViewController
-            destinationVC?.entryContent = entryContent
-            destinationVC?.saveButton.isEnabled = false
-            destinationVC?.timeOfDay = timeOfDayToPass
-            destinationVC?.currentDate = formattedDate
+            if let destinationVC = segue.destination as? DiaryEntryViewController {
+                destinationVC.entryContent = entryContent
+                destinationVC.saveButton.isEnabled = false
+                destinationVC.timeOfDay = timeOfDayToPass
+                destinationVC.currentDate = formattedDate
+            }
         }
     }
 }

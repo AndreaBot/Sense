@@ -39,7 +39,7 @@ struct FirebaseMethods {
             do {
                 try Auth.auth().signOut()
                 completion(.success(()))
-            } catch let signOutError as NSError {
+            } catch let signOutError {
                 completion(.failure(signOutError))
             }
         }
