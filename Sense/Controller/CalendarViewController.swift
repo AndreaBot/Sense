@@ -68,7 +68,6 @@ class CalendarViewController: UIViewController {
             destinationVC?.saveButton.isEnabled = false
             destinationVC?.timeOfDay = timeOfDayToPass
             destinationVC?.currentDate = formattedDate
-            destinationVC?.containerViewsBackgroundColor = timeOfDayToPass == "am" ? UIColor(named: "CustomOrangeColor")! : UIColor(named: "CustomBlueColor")!
         }
     }
 }
@@ -97,7 +96,7 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
                 FirebaseMethods.Database.getDaysWithEvents(userId, oneDate) { result in
                     switch result {
                     case .success(let date):
-    
+
                         if !self.dates.contains(date) {
                             self.dates.append(date)
                             self.components.append(dateComponents)

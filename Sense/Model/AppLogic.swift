@@ -18,20 +18,23 @@ struct AppLogic {
         return day+month+year
     }
     
-    static func convertAmPm(_ timeOfDay: String) -> (title: String, firstHeader: String, secondHeader: String) {
+    static func convertAmPm(_ timeOfDay: String) -> (title: String, firstHeader: String, secondHeader: String, backgroundColor: UIColor) {
         var title = ""
         var firstHeader = ""
         var secondHeader = ""
+        var backgroundColor = UIColor()
         if timeOfDay == "am" {
             title = "Daily Intentions"
             firstHeader = "Today's positive intentions"
             secondHeader = "Top 3 To-Do's"
+            backgroundColor = UIColor(named: "CustomOrangeColor")!
         } else {
             title = "Evening Reflections"
             firstHeader = "Three things I did well today"
             secondHeader = "Three thing I could improve on"
+            backgroundColor = UIColor(named: "CustomBlueColor")!
         }
-        return (title, firstHeader, secondHeader)
+        return (title, firstHeader, secondHeader, backgroundColor)
     }
     
     static func convertButtonTitleToDocName(_ buttonTitle: String) -> String {

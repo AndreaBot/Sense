@@ -588,7 +588,7 @@
                                                     <action selector="diaryEntryPressed:" destination="HvU-2U-Vlh" eventType="touchUpInside" id="MMd-ug-Vd6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcn-xW-Lzv">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcn-xW-Lzv">
                                                 <rect key="frame" x="200" y="0.0" width="190" height="765"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1193,8 +1193,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="h79-2y-j3O"/>
-        <segue reference="aQP-XD-r1P"/>
-        <segue reference="BEt-k4-5ke"/>
+        <segue reference="NaV-o0-DOZ"/>
+        <segue reference="Dmd-gq-qQh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AmGradient" width="375" height="375"/>

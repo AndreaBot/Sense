@@ -17,11 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var eveningReflectionsButton: UIButton!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
-    var screenTitle = ""
     var timeOfDay = ""
-    var firstLabelText = ""
-    var secondLabelText = ""
-    var containerViewsBackgroundColor = UIColor()
     var currentDate = ""
     
     let defaults = UserDefaults.standard
@@ -40,18 +36,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func diaryEntryPressed(_ sender: UIButton) {
-        screenTitle = sender.currentTitle!
-        
-        if sender.currentTitle == "Daily Intensions" {
+        if sender.tag == 0 {
             timeOfDay = "am"
-            firstLabelText = "Today's positive intentions:"
-            secondLabelText = "Top 3 To-Do's:"
-            containerViewsBackgroundColor = UIColor(named: "CustomOrangeColor")!
         } else {
             timeOfDay = "pm"
-            firstLabelText = "Three things I did well today:"
-            secondLabelText = "Three thing I could improve on:"
-            containerViewsBackgroundColor = UIColor(named: "CustomBlueColor")!
         }
         performSegue(withIdentifier: "makeEntry", sender: self)
     }
@@ -97,11 +85,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "makeEntry" {
             if let destinationVC = segue.destination as? DiaryEntryViewController {
-                destinationVC.screenTitle = screenTitle
                 destinationVC.timeOfDay = timeOfDay
-                destinationVC.firstLabelText = firstLabelText
-                destinationVC.secondLabelText = secondLabelText
-                destinationVC.containerViewsBackgroundColor = containerViewsBackgroundColor
                 destinationVC.editButton.isHidden = true
             }
         }

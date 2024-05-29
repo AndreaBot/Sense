@@ -31,11 +31,21 @@ class DiaryEntryViewController: UIViewController {
     
     var mood = ""
     var currentDate = ""
-    var screenTitle = ""
+    
     var timeOfDay = ""
-    var firstLabelText = ""
-    var secondLabelText = ""
-    var containerViewsBackgroundColor = UIColor()
+    var screenTitle: String {
+        AppLogic.convertAmPm(timeOfDay).title
+    }
+    var firstLabelText: String {
+        AppLogic.convertAmPm(timeOfDay).firstHeader
+    }
+    var secondLabelText: String {
+        AppLogic.convertAmPm(timeOfDay).secondHeader
+    }
+    var containerViewsBackgroundColor: UIColor {
+        AppLogic.convertAmPm(timeOfDay).backgroundColor
+    }
+    
     var entryContent: DiaryEntryModel?
 
     
