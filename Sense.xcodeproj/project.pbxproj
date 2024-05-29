@@ -11,6 +11,7 @@
 		622A61102B20C664003EFD82 /* QuotesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A610F2B20C664003EFD82 /* QuotesGenerator.swift */; };
 		622A61122B20C8FE003EFD82 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A61112B20C8FE003EFD82 /* QuoteData.swift */; };
 		622A61182B20D8BA003EFD82 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A61172B20D8BA003EFD82 /* QuoteModel.swift */; };
+		6240FB1F2C07C4DC00BBC299 /* FirebaseAuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6240FB1E2C07C4DC00BBC299 /* FirebaseAuthErrors.swift */; };
 		6245ECB82B2F4D020017F31A /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245ECB72B2F4D010017F31A /* ExpandedViewController.swift */; };
 		624CEA162B29BD3F000AF797 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CEA152B29BD3F000AF797 /* Notifications.swift */; };
 		624CEA182B29C51A000AF797 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CEA172B29C51A000AF797 /* SettingsMenuViewController.swift */; };
@@ -38,6 +39,7 @@
 		622A610F2B20C664003EFD82 /* QuotesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesGenerator.swift; sourceTree = "<group>"; };
 		622A61112B20C8FE003EFD82 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		622A61172B20D8BA003EFD82 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
+		6240FB1E2C07C4DC00BBC299 /* FirebaseAuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthErrors.swift; sourceTree = "<group>"; };
 		6245ECB72B2F4D010017F31A /* ExpandedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		624CEA152B29BD3F000AF797 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		624CEA172B29C51A000AF797 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				6298E5E92B0E7689000FCF30 /* DiaryEntryModel.swift */,
 				622A61112B20C8FE003EFD82 /* QuoteData.swift */,
 				6298E5EB2B115776000FCF30 /* FirebaseMethods.swift */,
+				6240FB1E2C07C4DC00BBC299 /* FirebaseAuthErrors.swift */,
 				6298E5ED2B115A23000FCF30 /* Alerts.swift */,
 				6298E5EF2B13AE80000FCF30 /* AppLogic.swift */,
 				622A610F2B20C664003EFD82 /* QuotesGenerator.swift */,
@@ -303,6 +306,7 @@
 				62A4553C2B08C70D00ACD2E6 /* CalendarViewController.swift in Sources */,
 				62A455462B08E74E00ACD2E6 /* LaunchScreenViewController.swift in Sources */,
 				622A61102B20C664003EFD82 /* QuotesGenerator.swift in Sources */,
+				6240FB1F2C07C4DC00BBC299 /* FirebaseAuthErrors.swift in Sources */,
 				6298E5EA2B0E7689000FCF30 /* DiaryEntryModel.swift in Sources */,
 				62A455342B08C6D700ACD2E6 /* HomeViewController.swift in Sources */,
 			);

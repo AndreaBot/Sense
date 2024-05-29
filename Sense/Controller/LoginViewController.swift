@@ -64,8 +64,10 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success:
                     self.performSegue(withIdentifier: "login", sender: self)
-                case .failure(let error):
-                    self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
+                case .failure(let error as NSError):
+                    if let code = AuthErrorCode.Code(rawValue: error.code) {
+                        self.present(Alerts.errorAlert(FirebaseAuthErrors.presentError(using: code)), animated: true)
+                    }
                 }
             }
         }

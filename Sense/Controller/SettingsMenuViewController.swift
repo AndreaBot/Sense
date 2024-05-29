@@ -5,6 +5,7 @@
 //  Created by Andrea Bottino on 13/12/2023.
 //
 
+import FirebaseAuth
 import UIKit
 
 class SettingsMenuViewController: UIViewController {
@@ -52,8 +53,12 @@ class SettingsMenuViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: UIButton) {
         FirebaseMethods.Authentication.logout { result in
             switch result {
-            case .success(): AppLogic.resetVC(self)
-            case .failure(let error): self.present(Alerts.errorAlert(error.localizedDescription), animated: true)
+            case .success(): 
+                AppLogic.resetVC(self)
+            case .failure(let error as NSError):
+                if let code = AuthErrorCode.Code(rawValue: error.code) {
+                    self.present(Alerts.errorAlert(FirebaseAuthErrors.presentError(using: code)), animated: true)
+                }
             }
         }
     }

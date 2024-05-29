@@ -5,6 +5,7 @@
 //  Created by Andrea Bottino on 24/11/2023.
 //
 
+import FirebaseAuth
 import UIKit
 
 struct Alerts {
@@ -44,8 +45,10 @@ struct Alerts {
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
             FirebaseMethods.Authentication.deleteAccount { result in
                 switch result {
-                case .failure(let error):
-                    print(error);
+                case .failure(let error as NSError):
+                    if let code = AuthErrorCode.Code(rawValue: error.code) {
+                        vc.present(Alerts.errorAlert(FirebaseAuthErrors.presentError(using: code)), animated: true)
+                    }
                 case .success(()):
                     AppLogic.resetVC(vc)
                 }
@@ -69,8 +72,10 @@ struct Alerts {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         vc.dismiss(animated: true)
                     }
-                case .failure( let error):
-                    vc.present(Alerts.errorAlert(error.localizedDescription), animated: true)
+                case .failure(let error as NSError):
+                    if let code = AuthErrorCode.Code(rawValue: error.code) {
+                        vc.present(Alerts.errorAlert(FirebaseAuthErrors.presentError(using: code)), animated: true)
+                    }
                 }
             }
         }
