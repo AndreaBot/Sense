@@ -46,11 +46,36 @@ struct Alerts {
                 switch result {
                 case .failure(let error):
                     print(error);
-                case .success(()): 
+                case .success(()):
                     AppLogic.resetVC(vc)
                 }
             }
         }))
+        return alert
+    }
+    
+    static func passwordResetAlert(vc: LoginViewController) -> UIAlertController {
+        let alert = UIAlertController(title: "Password reset", message: "Where should we send the password reset link?", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter your email address here"
+            textField.text = vc.emailAddress
+            textField.delegate = vc
+        }
+        let confirmAction = UIAlertAction(title: "Send reset link", style: .default) { UIAlertAction in
+            FirebaseMethods.Authentication.sendPasswordResetEmail(to: vc.emailAddress) { result in
+                switch result {
+                case .success():
+                    vc.present(Alerts.confirmationMessage("Email succcessfully sent!"), animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        vc.dismiss(animated: true)
+                    }
+                case .failure( let error):
+                    vc.present(Alerts.errorAlert(error.localizedDescription), animated: true)
+                }
+            }
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(confirmAction)
         return alert
     }
 }

@@ -248,6 +248,14 @@
                                     <action selector="loginUser:" destination="fsn-oz-IdS" eventType="touchUpInside" id="3Aw-2U-nQ3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFo-R4-dSC" userLabel="Forgotten password button">
+                                <rect key="frame" x="123.00000000000001" y="494.99999999999994" width="184.33333333333337" height="34.333333333333314"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forgotten password?"/>
+                                <connections>
+                                    <action selector="forgottenPasswordPressed:" destination="fsn-oz-IdS" eventType="touchUpInside" id="xTE-1L-cLd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4TA-Zs-Ddg"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -258,6 +266,8 @@
                             <constraint firstItem="4TA-Zs-Ddg" firstAttribute="trailing" secondItem="h0d-hU-tNj" secondAttribute="trailing" constant="20" id="Ikh-2H-X4D"/>
                             <constraint firstItem="h0d-hU-tNj" firstAttribute="leading" secondItem="4TA-Zs-Ddg" secondAttribute="leading" constant="20" id="TfI-Wv-jng"/>
                             <constraint firstItem="h0d-hU-tNj" firstAttribute="top" secondItem="4TA-Zs-Ddg" secondAttribute="top" id="hC7-qt-wEt"/>
+                            <constraint firstItem="AFo-R4-dSC" firstAttribute="top" secondItem="h0d-hU-tNj" secondAttribute="bottom" constant="20" id="qNA-SF-48S"/>
+                            <constraint firstItem="AFo-R4-dSC" firstAttribute="centerX" secondItem="l8J-Be-PX1" secondAttribute="centerX" id="wdv-3b-E7s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8j8-zB-Q73"/>
@@ -1192,7 +1202,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h79-2y-j3O"/>
+        <segue reference="Rxt-CE-CSJ"/>
         <segue reference="NaV-o0-DOZ"/>
         <segue reference="Dmd-gq-qQh"/>
     </inferredMetricsTieBreakers>

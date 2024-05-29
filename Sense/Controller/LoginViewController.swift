@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     let eyeImage = UIImage(systemName: "eye")
     let eyeSlashImage = UIImage(systemName: "eye.slash")
     
+    var emailAddress = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -51,6 +53,10 @@ class LoginViewController: UIViewController {
         return showPasswordContainer
     }
     
+    @IBAction func forgottenPasswordPressed(_ sender: UIButton) {
+        present(Alerts.passwordResetAlert(vc: self), animated: true)
+    }
+    
     
     @IBAction func loginUser(_ sender: UIButton) {
         if let userEmail = emailTextField.text, let userPassword = passwordTextField.text {
@@ -80,5 +86,11 @@ class LoginViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
             showPasswordButton.setImage(eyeSlashImage, for: .normal)
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        emailAddress = textField.text!
     }
 }

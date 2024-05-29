@@ -55,6 +55,16 @@ struct FirebaseMethods {
                 }
             }
         }
+        
+        static func sendPasswordResetEmail(to emailAddress: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            Auth.auth().sendPasswordReset(withEmail: emailAddress) { error in
+                if let e = error {
+                    completion(.failure(e))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
     }
     
     struct Database {
