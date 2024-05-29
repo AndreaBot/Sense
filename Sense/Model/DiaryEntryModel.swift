@@ -10,7 +10,7 @@ import Foundation
 struct DiaryEntryModel: Codable {
     
     let timeOfDay: String?
-    let mood: String?
+    let mood: Mood.RawValue?
     let txtField1: String?
     let txtField2: String?
     let txtField3: String?

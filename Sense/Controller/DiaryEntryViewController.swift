@@ -10,6 +10,10 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 
+enum Mood: String {
+    case happy, neutral, sad
+}
+
 class DiaryEntryViewController: UIViewController {
     
     
@@ -30,7 +34,8 @@ class DiaryEntryViewController: UIViewController {
     @IBOutlet var containerViews: [UIView]!
     @IBOutlet weak var expandButton: UIButton!
     
-    var mood = ""
+    var mood: Mood = .neutral
+    
     var currentDate = ""
     
     var timeOfDay = ""
@@ -68,10 +73,10 @@ class DiaryEntryViewController: UIViewController {
     
     @IBAction func moodTracker(_ sender: UIButton) {
         switch sender.tag {
-        case 1: mood = "happy"
-        case 2: mood = "neutral"
-        case 3: mood = "sad"
-        default: mood = "neutral"
+        case 1: mood = .happy
+        case 2: mood = .neutral
+        case 3: mood = .sad
+        default: mood = .neutral
         }
         highlightSelectedMood(mood)
     }
@@ -97,7 +102,7 @@ class DiaryEntryViewController: UIViewController {
            let text6 = txtField6.text,
            let diaryText = diaryEntry.text {
             
-            FirebaseMethods.Database.writeToDatabase(currentDate, timeOfDay, mood, userId, text1, text2, text3, text4, text5, text6, diaryText) { result in
+            FirebaseMethods.Database.writeToDatabase(currentDate, timeOfDay, mood.rawValue, userId, text1, text2, text3, text4, text5, text6, diaryText) { result in
                 switch result {
                 case .success():
                     self.present(Alerts.confirmationMessage("Diary entry saved!"), animated: true)
@@ -128,7 +133,7 @@ class DiaryEntryViewController: UIViewController {
             txtField6.text = passedContent.txtField6
             diaryEntry.text = passedContent.diaryText
             
-            highlightSelectedMood(passedContent.mood!)
+            highlightSelectedMood(Mood(rawValue: passedContent.mood!) ?? .neutral)
             
             title = AppLogic.convertAmPm(passedContent.timeOfDay!).title
             firstLabel.text = AppLogic.convertAmPm((passedContent.timeOfDay)!).firstHeader
@@ -160,16 +165,16 @@ class DiaryEntryViewController: UIViewController {
         
     }
     
-    func highlightSelectedMood(_ mood: String) {
-        if mood == "happy" {
+    func highlightSelectedMood(_ mood: Mood) {
+        if mood == .happy {
             enableButton(happyMoodButton)
             disableButton(neutralMoodButton)
             disableButton(sadMoodButton)
-        } else if mood == "neutral" {
+        } else if mood == .neutral {
             disableButton(happyMoodButton)
             enableButton(neutralMoodButton)
             disableButton(sadMoodButton)
-        } else if mood == "sad" {
+        } else if mood == .sad {
             disableButton(happyMoodButton)
             disableButton(neutralMoodButton)
             enableButton(sadMoodButton)
