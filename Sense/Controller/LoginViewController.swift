@@ -37,6 +37,9 @@ class LoginViewController: UIViewController {
         passwordTextField.rightViewMode = .always
    
         loginButton.layer.cornerRadius = loginButton.frame.height/7
+        
+        emailTextField.text = "recruiter@1.com"
+        passwordTextField.text = "123456"
     }
     
     func setPasswordReveal(for txtField: UITextField, button: UIButton) -> UIView {

@@ -83,5 +83,11 @@ struct Alerts {
         alert.addAction(confirmAction)
         return alert
     }
+    
+    static func welcomeMessage(_ vc: UIViewController) -> UIAlertController {
+        let alert = UIAlertController(title: "Welcome 👋🏻", message: "Thank you for checking out this app. I have provided some default login details; feel free to use them to view example data in the calendar (from June 2024). \nFor reference, you can find the login details in LoginViewController.swift", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        return alert
+    }
 }
 

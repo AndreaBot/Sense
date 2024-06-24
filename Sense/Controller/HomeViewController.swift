@@ -17,6 +17,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         setButtons()
+        
+        //WELCOME MESSAGE FOR RECRUITERS
+        present(Alerts.welcomeMessage(self), animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
